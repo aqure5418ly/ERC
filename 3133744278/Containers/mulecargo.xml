@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Transport railgun mule" identifier="railgun_mule" category="Equipment,Diving" Tags="container,light" Scale="0.5" impactsoundtag="impact_metal_light" isshootable="true" impacttolerance="4.5" damagedbymonsters="true" damagedbyexplosions="true" damagedbyrepairtools="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" indestructible="false" health="50">
+    <Price baseprice="1000" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="1" />
+    </Price>
+    <Deconstruct time="25">
+      <Item identifier="steel" />
+      <Item identifier="steel" />
+      <Item identifier="aluminium" />
+      <Item identifier="aluminium" />
+      <Item identifier="copper" />
+      <Item identifier="tin" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="40">
+      <RequiredSkill identifier="mechanical" level="50" />
+      <RequiredItem identifier="underwaterscooter" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      <RequiredItem identifier="steel" amount="5" />
+      <RequiredItem identifier="aluminium" amount="2" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Containers/mulescargo.png" depth="0.575" sourcerect="0,0,393,237" origin="0.5,0.5" />
+    <Body width="400" height="230" density="20" />
+    <AiTarget soundrange="3000" />
+    <Holdable slots="RightHand+LeftHand" blocksplayers="true" controlpose="true" aimable="true" AimPos="135,-45" AimAngle="-18" holdpos="145,0" holdangle="-18" handle1="-190,10" handle2="-180,-18" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.2" setvalue="true" />
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="1.5" setvalue="true">
+        <RequiredItem item="mobilebattery" type="Contained" targetslot="1" msg="ItemMsgBatteryCellRequired" />
+        <RequiredItem item="mobilebattery" type="Contained" targetslot="0" msg="ItemMsgBatteryCellRequired" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2">
+        <RequiredItem items="mobilebattery" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2">
+        <RequiredItem items="mobilebattery" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="InWater" target="This" aimable="true" AimPos="135,-45" AimAngle="5" setvalue="true" />
+      <StatusEffect type="NotInWater" target="This" aimable="false" AimPos="135,-45" AimAngle="-18" setvalue="true" />
+      <StatusEffect type="OnImpact" target="This" Condition="-10.0" />
+      <StatusEffect type="OnDamaged" target="This" disabledeltatime="true" setvalue="true">
+        <particleemitter particle="shrapnel" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
+        <Sound file="Content/Sounds/Damage/HitMetal1.ogg" selectionmode="random" range="500" />
+        <Sound file="Content/Sounds/Damage/HitMetal2.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/HitMetal3.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/HitMetal4.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/HitMetal5.ogg" range="500" />
+        <Sound file="Content/Sounds/Damage/HitMetal6.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Dropcontaineditems />
+        <Dropitem />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" Condition="1.0" delay="3.0" />
+      <StatusEffect type="OnActive" target="This" Condition="-0.5">
+        <Conditional condition="lt 5.0" />
+      </StatusEffect>
+    </Holdable>
+    <Propulsion force="140" usablein="water" particles="bubbles">
+      <RequiredItem item="mobilebattery" type="Contained" targetslot="0" msg="ItemMsgBatteryCellRequired" />
+      <RequiredItem item="mobilebattery" type="Contained" targetslot="1" msg="ItemMsgBatteryCellRequired" />
+      <StatusEffect type="OnUse" target="This" Condition="-0.5">
+        <Conditional Condition="lt 5.0" />
+      </StatusEffect>
+      <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2">
+        <RequiredItem items="mobilebattery" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2">
+        <RequiredItem items="mobilebattery" type="Contained" />
+      </StatusEffect>
+    </Propulsion>
+    <LightComponent LightColor="255,200,150,150" range="300" powerconsumption="10" Flickerspeed="0.4" IsOn="false" allowingameediting="false">
+      <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.05">
+        <RequiredItem items="mobilebattery" type="Contained" targetslot="1" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" Tags="provocative" />
+    </LightComponent>
+    <LightComponent LightColor="255,200,150,180" range="700" powerconsumption="10" Flickerspeed="0.4" IsOn="false" allowingameediting="false">
+      <LightTexture texture="Content/Lights/lightcone.png" origin="0.05, 0.5" size="1.0,1.0" />
+      <StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.05">
+        <RequiredItem items="mobilebattery" type="Contained" targetslot="0" />
+      </StatusEffect>
+    </LightComponent>
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.50" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+      <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+      <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="lacerations" strength="5" />
+        <Affliction identifier="stun" strength="4" />
+      </StatusEffect>
+    </Repairable>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.1,0.1" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+      <TickBox text="entityname.flashlight">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+    </CustomInterface>
+    <ItemContainer autofill="False" hideitems="false" capacity="0" maxstacksize="1" slotsperrow="2" containedstateindicatorslot="0" containedstateindicatorstyle="battery" itemrotation="-270" canbeselected="false" msg="ItemMsgInteractSelect" keepopenwhenequipped="false" movableframe="true">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="2" maxstacksize="1">
+        <Containable items="mobilebattery" Hide="true">
+          <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="-42,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="-26,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="-10,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="6,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="22,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="38,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="54,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable Hide="false" itempos="70,35" identifiers="railgunammo"></Containable>
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+  <!--identifier="ekutility_mulecargo" identifier="crate_mule"-->
+  <Override>
+    <Item name="Transport crate mule" identifier="ekutility_mulecargo" category="Equipment,Diving" Tags="container,light" Scale="0.5" impacttolerance="4.5" impactsoundtag="impact_metal_light" isshootable="true" damagedbymonsters="true" damagedbyexplosions="true" damagedbyrepairtools="true" damagedbyprojectiles="true" damagedbymeleeweapons="true" indestructible="false" health="50">
+      <Price baseprice="1000" soldeverywhere="false">
+        <Price storeidentifier="merchantoutpost" multiplier="1.1" sold="false" />
+        <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+        <Price storeidentifier="merchantresearch" multiplier="1" minavailable="1" />
+        <Price storeidentifier="merchantmilitary" multiplier="1.25" sold="false" />
+        <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="1" />
+      </Price>
+      <Deconstruct time="25">
+        <Item identifier="steel" />
+        <Item identifier="steel" />
+        <Item identifier="aluminium" />
+        <Item identifier="aluminium" />
+        <Item identifier="copper" />
+        <Item identifier="tin" />
+        <Item identifier="plastic" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="40">
+        <RequiredSkill identifier="mechanical" level="50" />
+        <RequiredItem identifier="underwaterscooter" amount="2" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+        <RequiredItem identifier="steel" amount="5" />
+        <RequiredItem identifier="aluminium" amount="2" />
+      </Fabricate>
+      <Sprite texture="%ModDir%/Containers/mulescargo.png" depth="0.575" sourcerect="0,245,411,216" origin="0.5,0.5" />
+      <Body width="415" height="210" density="20" />
+      <AiTarget soundrange="3000" />
+      <Holdable slots="RightHand+LeftHand" blocksplayers="true" controlpose="true" aimable="true" AimPos="135,-45" AimAngle="-18" holdpos="145,0" holdangle="-18" handle1="-190,10" handle2="-180,-18" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="Character" SpeedMultiplier="1.5" setvalue="true">
+          <RequiredItem item="mobilebattery" type="Contained" targetslot="1" msg="ItemMsgBatteryCellRequired" />
+          <RequiredItem item="mobilebattery" type="Contained" targetslot="0" msg="ItemMsgBatteryCellRequired" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.9" setvalue="true">
+          <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+          <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+          <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+          <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2">
+          <RequiredItem items="mobilebattery" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2">
+          <RequiredItem items="mobilebattery" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="InWater" target="This" aimable="true" AimPos="135,-45" AimAngle="5" setvalue="true" />
+        <StatusEffect type="NotInWater" target="This" aimable="false" AimPos="135,-45" AimAngle="-18" setvalue="true" />
+        <StatusEffect type="OnImpact" target="Contained" Indestructible="false" Condition="-10.0" disabledeltatime="true" conditionalComparison="And">
+          <Conditional HasTag="depthchargeammo" />
+          <Conditional HasTag="armed" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" Condition="-10.0" />
+        <StatusEffect type="OnDamaged" target="This" disabledeltatime="true" setvalue="true">
+          <particleemitter particle="shrapnel" drawontop="true" particleamount="5" velocitymin="100" velocitymax="500" anglemin="0" anglemax="360" distancemin="0" distancemax="20" scalemin="0.1" scalemax="0.35" />
+          <Sound file="Content/Sounds/Damage/HitMetal1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Sounds/Damage/HitMetal2.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/HitMetal3.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/HitMetal4.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/HitMetal5.ogg" range="500" />
+          <Sound file="Content/Sounds/Damage/HitMetal6.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This, Contained" conditionalComparison="And">
+          <Conditional HasTag="armed" />
+          <Conditional HasTag="clownmaskwh" />
+          <Sound file="Content/Items/Jobgear/Clown/ITEM_bananaSlip2.ogg" range="800" volume="1.5" />
+          <Use />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <RequiredItem identifiers="clownmask,clownmask_with_horns" type="Contained" />
+          <Sound file="Content/Items/Jobgear/Clown/ITEM_bananaSlip2.ogg" range="800" volume="1.5" />
+          <Dropcontaineditems />
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Dropcontaineditems />
+          <Dropitem />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" Condition="1.0" delay="3.0" />
+        <StatusEffect type="OnActive" target="This" Condition="-0.5">
+          <Conditional condition="lt 5.0" />
+        </StatusEffect>
+      </Holdable>
+      <Propulsion force="140" usablein="water" particles="bubbles">
+        <RequiredItem item="mobilebattery" type="Contained" targetslot="1" msg="ItemMsgBatteryCellRequired" />
+        <RequiredItem item="mobilebattery" type="Contained" targetslot="0" msg="ItemMsgBatteryCellRequired" />
+        <StatusEffect type="OnUse" target="This" Condition="-0.5">
+          <Conditional Condition="lt 5.0" />
+        </StatusEffect>
+        <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+        <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2">
+          <RequiredItem items="mobilebattery" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2">
+          <RequiredItem items="mobilebattery" type="Contained" />
+        </StatusEffect>
+      </Propulsion>
+      <LightComponent LightColor="255,200,150,150" range="300" powerconsumption="10" Flickerspeed="0.4" IsOn="false" allowingameediting="false">
+        <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.05">
+          <RequiredItem items="mobilebattery" type="Contained" targetslot="1" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" targettype="This" Tags="provocative" />
+      </LightComponent>
+      <LightComponent LightColor="255,200,150,180" range="700" powerconsumption="10" Flickerspeed="0.4" IsOn="false" allowingameediting="false">
+        <LightTexture texture="Content/Lights/lightcone.png" origin="0.05, 0.5" size="1.0,1.0" />
+        <StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.05">
+          <RequiredItem items="mobilebattery" type="Contained" targetslot="0" />
+        </StatusEffect>
+      </LightComponent>
+      <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.50" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+        <GuiFrame relativesize="0.2,0.16" minsize="400,180" maxsize="480,280" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
+        <RequiredSkill identifier="mechanical" level="55" />
+        <RequiredItem items="wrench" type="equipped" />
+        <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" anglemax="360" velocitymin="-10" velocitymax="10" mincondition="0.0" maxcondition="50.0" />
+        <ParticleEmitter particle="smoke" particlespersecond="2" scalemin="1" scalemax="2.5" anglemax="360" velocitymin="-50" velocitymax="50" mincondition="15.0" maxcondition="50.0" />
+        <ParticleEmitter particle="heavysmoke" particlespersecond="2" scalemin="1.0" scalemax="2.5" anglemax="360" distancemax="60" mincondition="0.0" maxcondition="15.0" />
+        <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand" AllowWhenBroken="true">
+          <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+          <Affliction identifier="lacerations" strength="5" />
+          <Affliction identifier="stun" strength="4" />
+        </StatusEffect>
+      </Repairable>
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+        <RequiredItem item="mobilebattery" type="Contained" targetslot="1" />
+        <GuiFrame relativesize="0.1,0.1" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+        <TickBox text="entityname.detonator">
+          <StatusEffect type="OnUse" targettype="Contained, This" tags="armed" stackable="false">
+            <RequiredItem identifiers="clownmask_with_horns" type="Contained" />
+          </StatusEffect>
+          <StatusEffect type="OnSecondaryUse" targettype="Contained, This" Tags="" setvalue="true" />
+        </TickBox>
+        <Button text="entitydescription.bikehorn">
+          <StatusEffect type="OnUse" targettype="Contained">
+            <Conditional HasTag="armed" />
+            <Use />
+          </StatusEffect>
+          <StatusEffect type="OnUse">
+            <RequiredItem identifiers="clownmask,clownmask_with_horns" type="Contained" />
+            <Sound file="Content/Items/Weapons/honk.ogg" range="1000" />
+          </StatusEffect>
+        </Button>
+      </CustomInterface>
+      <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+        <GuiFrame relativesize="0.1,0.1" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+        <TickBox text="entityname.flashlight">
+          <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+          <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+        </TickBox>
+      </CustomInterface>
+      <ItemContainer autofill="False" hideitems="false" capacity="0" maxstacksize="1" slotsperrow="2" containedstateindicatorslot="0" containedstateindicatorstyle="battery" itemrotation="0" canbeselected="false" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
+        <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+        <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+        <!-- SLOT 0, 1 -->
+        <SubContainer capacity="2" maxstacksize="1">
+          <Containable items="mobilebattery" Hide="true">
+            <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+          </Containable>
+        </SubContainer>
+        <!-- SLOT 2 -->
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable Hide="false" itempos="-24,-10" identifiers="ammobox,depthchargeammo,crate,deepdiving,railgunammo" excludeditems="deepdivinglarge">
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Contained" oneshot="true" Tags="" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.2" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+          </Containable>
+        </SubContainer>
+        <!-- SLOT 3 -->
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable Hide="false" itempos="55,-10" identifiers="ammobox,depthchargeammo,crate,deepdiving" excludeditems="deepdivinglarge">
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Contained" oneshot="true" Tags="" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+          </Containable>
+        </SubContainer>
+        <!-- SLOT 4 -->
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable Hide="false" itempos="-24,38" identifiers="ammobox,depthchargeammo,crate,deepdiving" excludeditems="deepdivinglarge">
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Contained" oneshot="true" Tags="" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="5" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="5" />
+            </StatusEffect>
+          </Containable>
+        </SubContainer>
+        <!-- SLOT 5 -->
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable Hide="false" itempos="55,38" identifiers="ammobox,depthchargeammo,crate,deepdiving" excludeditems="deepdivinglarge">
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Contained" oneshot="true" Tags="" setvalue="true" />
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.6" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="4" />
+            </StatusEffect>
+            <StatusEffect type="OnContaining" target="Character" SpeedMultiplier="0.4" setvalue="true">
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="2" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" targetslot="3" />
+              <RequiredItem item="ammobox,depthchargeammo,crate,deepdiving,railgunammo" type="Contained" matchonempty="true" targetslot="4" />
+            </StatusEffect>
+          </Containable>
+        </SubContainer>
+      </ItemContainer>
+      <!-- SLOT 6 -->
+      <ItemContainer autofill="False" hideitems="false" capacity="1" maxstacksize="1" itempos="168,-15">
+        <Containable identifiers="clownmask,clownmask_with_horns" />
+        <StatusEffect type="OnContaining" target="Contained" Condition="100" setvalue="true" />
+      </ItemContainer>
+    </Item>
+  </Override>
+</Items>

@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!--安全金属箱-->
+  <Item identifier="safemetalcrate" category="Equipment" tags="crate,allowcleanup" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true">
+    <Price baseprice="110">
+      <Price storeidentifier="merchantoutpost" multiplier="1" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="3" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="3" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Images/Safe_Metal_Crate.png" depth="0.54" sourcerect="0,0,152,90" origin="0.5,0.5" />
+    <Body width="150" height="80" density="50" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer capacity="30" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true" showcontainedstateindicator="true">
+      <Containable items="smallitem,mediumitem" />
+    </ItemContainer>
+    <ItemComponent>
+      <StatusEffect type="OnContained" target="This" tags="locker" setvalue="true">
+        <Conditional targetcontainer="true" HasTag="eq deconstructor" />
+        <Conditional targetcontainer="true" HasTag="eq fabricator" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" tags="" setvalue="true">
+        <Conditional targetcontainer="true" HasTag="neq deconstructor,fabricator" />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <!--安全重型板条箱-->
+  <Item identifier="safeheavycrate" category="Equipment" tags="crate" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true" canflipx="false">
+    <Price baseprice="100">
+      <Price locationtype="merchantoutpost" multiplier="1" minavailable="1" />
+      <Price locationtype="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price locationtype="merchantresearch" multiplier="1.25" minavailable="1" />
+      <Price locationtype="merchantmilitary" multiplier="0.9" minavailable="3" />
+      <Price locationtype="merchantmine" multiplier="1.25" minavailable="0" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="steel" amount="3" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="steel" amount="3" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Images/Safe_Heavy_Crate.png" depth="0.54" sourcerect="0,103,304,86" origin="0.5,0.5" />
+    <ContainedSprite name="Safe Heavy Crate on shelf" allowedcontainertags="cargocontainer" texture="%ModDir%/Images/Safe_Heavy_Crate.png" sourcerect="0,5,152,87" depth="0.55" origin="0.5,0.5" />
+    <Body width="145" height="85" density="50" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-80" handle1="-20,14" handle2="20,14" aimable="false" msg="ItemMsgPickUpSelect"></Holdable>
+    <ItemContainer capacity="10" slotsperrow="2" maxstacksize="64" canbeselected="false" hideitems="true" keepopenwhenequipped="true" movableframe="true" showcontainedstateindicator="true">
+      <Containable items="deepdiving,ammobox,coilgunammo,railgunammo,depthchargeammo,alienartifact,toolbox" excludeditems="backpack" />
+      <SlotIcon slotindex="0" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="1" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="2" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="3" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="4" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="5" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="6" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="7" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="8" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+      <SlotIcon slotindex="9" texture="%ModDir%/Icons/Heavy.png" origin="0.5,0.45" />
+    </ItemContainer>
+  </Item>
+  <!--安全壁挂金属箱-->
+  <Item identifier="safewallhangingmetalcrate" category="Equipment" tags="allowcleanup,mediumitem,toolbelt,toolbox,mobilecontainer" scale="0.5" linkable="true" pickdistance="150" showcontentsintooltip="true" impactsoundtag="impact_metal_heavy" fireproof="true" waterproof="true" canflipx="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredItem identifier="aluminium" />
+      <RequiredItem identifier="rubber" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="aluminium" />
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <Sprite texture="%ModDir%/Images/Safe_Wall_Hanging_Metal_Crate.png" depth="0.55" sourcerect="0,0,145,82" />
+    <Body width="145" height="82" density="50" />
+    <Holdable slots="RightHand+LeftHand" aimable="false" holdpos="50,-50" aimpos="50,-40" handle1="-0,18" handle2="0,0" swingamount="20,100" swingspeed="1" swingwhenusing="true" msg="itemmsgpickupuse" attachable="true" selectkey="Action" pickkey="Use">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnSpawn" target="This" Tags="crate" setvalue="true" />
+    </Holdable>
+    <ItemContainer capacity="25" slotsperrow="5" hideitems="true" keepopenwhenequipped="true" movableframe="true" showcontainedstateindicator="true" canbeselected="true" msg="itemmsgopen">
+      <Containable items="smallitem" excludeditems="toolbox,cargoscooter,toolbelt" />
+    </ItemContainer>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.07,0.1" anchor="BottomCenter" absoluteoffset="-165,0" />
+      <TickBox text="Close">
+        <StatusEffect type="OnUse" target="This" setvalue="true" drawinventory="false" />
+        <StatusEffect type="OnSecondaryUse" target="This" setvalue="true" drawinventory="true" />
+      </TickBox>
+      <TickBox text="Deploy">
+        <StatusEffect type="OnUse" target="This" setvalue="true" attachable="true" />
+        <StatusEffect type="OnSecondaryUse" target="This" setvalue="true" attachable="false" />
+      </TickBox>
+    </CustomInterface>
+  </Item>
+  <!-- 白鹰手提包 -->
+  <Item identifier="whiteeaglehandbag" category="Equipment" tags="mediumitem,toolbelt,toolbox,mobilecontainer" scale="0.08" showcontentsintooltip="true" impactsoundtag="impact_soft" fireproof="true" waterproof="true" canflipx="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <Item identifier="plastic" />
+      <Item identifier="rubber" />
+      <Item identifier="organicfiber" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="rubber" />
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Images/whiteeaglehandbag.png" sourcerect="0,0,696,696" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/whiteeaglehandbag.png" sourcerect="0,0,696,696" depth="0.55" origin="0.5,0.5" />
+    <Body width="45" height="45" density="20" />
+    <MeleeWeapon slots="RightHand,LeftHand,Any" controlpose="true" aimpos="45,10" handle1="0,25" holdangle="90" reload="1" range="50" combatpriority="6" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="20" itemdamage="5" targetimpulse="2">
+        <Affliction identifier="blunttrauma" strength="2" />
+        <Affliction identifier="stun" strength="0.6" />
+        <StatusEffect type="OnUse" target="UseTarget" stackable="false">
+          <Conditional entitytype="eq Character" />
+          <Sound file="%ModDir%/Sounds/whiteeaglehandbagattack.ogg" selectionmode="random" volume="0.5" range="200" />
+          <Sound file="%ModDir%/Sounds/woshihuode1.ogg" volume="0.5" range="200" />
+          <Sound file="%ModDir%/Sounds/woshihuode2.ogg" volume="0.5" range="200" />
+          <Sound file="%ModDir%/Sounds/imnotjb.ogg" volume="0.5" range="200" />
+          <Sound file="%ModDir%/Sounds/biedaduiyou.ogg" volume="0.5" range="200" />
+          <Sound file="%ModDir%/Sounds/weizhuangzhejiuwo.ogg" volume="0.5" range="200" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <ItemContainer capacity="8" keepopenwhenequipped="true" movableframe="true" showcontainedstateindicator="true">
+      <Containable items="smallitem" excludeditems="toolbelt,toolbox,mobilecontainer,vest,backpack" />
+    </ItemContainer>
+  </Item>
+  <!-- 白鹰弹药包 -->
+  <Item identifier="whiteeagleammobag" category="Equipment" tags="mediumitem,toolbelt,toolbox,mobilecontainer" scale="0.08" showcontentsintooltip="true" impactsoundtag="impact_soft" fireproof="true" waterproof="true" canflipx="false">
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="mechanical" level="15" />
+      <Item identifier="plastic" />
+      <Item identifier="rubber" />
+      <Item identifier="organicfiber" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="rubber" />
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/Images/whiteeagleammobag.png" sourcerect="0,0,696,696" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/whiteeagleammobag.png" sourcerect="0,0,696,696" depth="0.55" origin="0.5,0.5" />
+    <Body width="45" height="45" density="20" />
+    <Holdable slots="RightHand,LeftHand,Any" holdpos="10,-90" handle1="-5,300" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer capacity="9" keepopenwhenequipped="true" movableframe="true" showcontainedstateindicator="true">
+      <Containable items="harpoonammo,revolverammo,pistolammoitem,smgammo,demolitionsexpert,mobilebattery,grenade,shotgunammo,stungunammo,reactorfuel,assaultrifleammo,explosive,demolitionsexpert,nitroglycerin,ehaammo,rifleammo,magazine" excludeditems="mobilecontainer" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="2" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="3" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="4" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="5" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="6" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="7" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="8" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+    </ItemContainer>
+  </Item>
+</Items>

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Cargo scooters for railgun ammo and crates" modversion="1.2" corepackage="False" steamworkshopid="3133744278" gameversion="1.3.0.1" altnames="Transport mules" expectedhash="6AA1D03F1AF517C93CB481F52B547682">
+  <Item file="%ModDir%/Containers/mulecargo.xml" />
+</contentpackage>

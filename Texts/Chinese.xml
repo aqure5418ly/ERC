@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Chinese">
+  <!-- 
+    ERC Logistics Localization File
+    来源: 箱子合集.xlsx
+  -->
+
+  <!-- 1. 遗物袋柜 -->
+  <ItemName.ERC_duffelbagcontainer>遗物袋柜</ItemName.ERC_duffelbagcontainer>
+  <ItemDescription.ERC_duffelbagcontainer>
+    遗物是囚困余生的枷锁，温暖是冰海春天的残忍。执政官扔下了一卷冰冷的擢升文书，却被墙角烂醉的舰长视若无睹，他只是一直小声嘟囔着几个名字：
+    “这是他的失物吗？你是他的家人吗？他是你的骄傲吗？”
+    无意间，他长成了参天巨树，可与他一同洒在冰洋的种子却再无机会发芽。
+    (可容纳25组遗物袋)
+  </ItemDescription.ERC_duffelbagcontainer>
+
+  <!-- 2. 磁力扩容箱 -->
+  <ItemName.ERC_expansioncrate>ERC磁力扩容箱</ItemName.ERC_expansioncrate>
+  <ItemDescription.ERC_expansioncrate>
+    “捷运必达，安心所托！”
+    为提高速递潜艇的杂物携载量，欧罗巴捷运快递公司（ERC）针对潜艇结构特别设计了这一款扩容箱。该扩容箱可作为钢柜的挂载部件，从而扩大钢柜容量；同时箱体设计有强磁背件，借此扩容箱得以轻松固定在潜艇钢结构的任何平面上。箱体除了常规三防外，新的置物架设计避免了倾倒或撞击造成的杂物散落。
+    (右键+E放置，空手E拆卸。可放25组物品)
+  </ItemDescription.ERC_expansioncrate>
+
+  <!-- 3. 精兵弹药单元 -->
+  <ItemName.ERC_elite_ammounit>精兵弹药单元</ItemName.ERC_elite_ammounit>
+  <ItemDescription.ERC_elite_ammounit>
+    新款便携弹药盒，防水防火，大大提高了单兵弹药与爆破物的携载量。在战斗烈度逐渐升温的今天，这款便携的弹药单元的横空出世，无疑提高了每一位士兵的生存期望。至于它是否会让战斗烈度进一步升温，你先别管。
+    (单手物品，可携带9组弹药/爆炸物)
+  </ItemDescription.ERC_elite_ammounit>
+
+  <!-- 4. 精兵收纳单元 -->
+  <ItemName.ERC_elite_storageunit>精兵收纳单元</ItemName.ERC_elite_storageunit>
+  <ItemDescription.ERC_elite_storageunit>
+    新款便携收纳卷，防水防火，大大提高了单兵药品与杂物的携载量。
+  </ItemDescription.ERC_elite_storageunit>
+
+  <!-- 5. 重型载货推进器 -->
+  <ItemName.ERC_heavycargo_thruster>ERC重型载货推进器</ItemName.ERC_heavycargo_thruster>
+  <ItemDescription.ERC_heavycargo_thruster>
+    “捷运必达，安心所托！”
+    最早，水下货运推进器被用于穿梭艇无法到达的矿洞深处中，运回矿物或为常驻矿工提供补给。为提高快递的基层覆盖率，欧罗巴捷运快递公司（ERC）基于推进器的现有结构进行了改进，提高了螺旋桨性能，并使其能同时运载更多的货物。新推进器的问世大大降低了超短途运输对穿梭艇的依赖性。
+    (可放6个ERC箱，用于搬沉船或者进洞采矿，放置可漂浮)
+  </ItemDescription.ERC_heavycargo_thruster>
+
+</infotexts>

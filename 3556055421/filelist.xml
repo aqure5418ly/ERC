@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="EK Containers" modversion="1.0" corepackage="False" gameversion="1.9.8.0" expectedhash="A4EE718B963C097CCFFAC57565E6BFF2" installtime="2025Y 08M 19D 22HR 13MIN 41SEC UTC">
+  <Item file="%ModDir%/Items/Containers/ek_containers.xml" />
+  <Item file="%ModDir%/Items/Tools/ekutility_placeablemachines.xml" />
+  <Text file="%ModDir%/Texts/EnglishEkGunnery.xml" />
+  <Text file="%ModDir%/Texts/EnglishEKUtilities.xml" />
+</contentpackage>

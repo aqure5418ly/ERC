@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- 
+    ================================================================
+    ERC LOGISTICS CONTAINERS
+    具体业务实现
+    ================================================================
+  -->
+
+  <!-- 1. ERC_duffelbagcontainer (遗物袋柜) -->
+  <!-- 继承: ERC_BaseContainer -->
+  <Item name="" identifier="ERC_duffelbagcontainer" nameidentifier="ERC_duffelbagcontainer" category="Machine" tags="container,crate" scale="0.5">
+    <!-- 继承基类属性 -->
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab" amount="1" spawnprobability="0.1"/>
+    <Price baseprice="200" sold="false" />
+    
+    <!-- 这里需要替换为您实际的贴图路径 -->
+    <Sprite texture="%ModDir%/Images/Containers/erc_containers_sheet.png" depth="0.6" sourcerect="0,0,100,100" origin="0.5,0.5" />
+    <Body width="150" height="100" density="25" />
+
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-20,0" handle2="20,0" aimable="false" msg="ItemMsgPickUpSelect" />
+
+    <!-- 容量: 5x5=25, 限制只能放遗物袋(duffelbag) -->
+    <ItemContainer capacity="25" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable identifiers="duffelbag,bodybag,idcard" /> <!-- 允许放入身份证以便识别 -->
+      <GuiFrame relativesize="0.25,0.4" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 2. ERC_expansioncrate (ERC磁力扩容箱) -->
+  <!-- 核心机制: Attachable (可附着) + Placeable -->
+  <Item name="" identifier="ERC_expansioncrate" nameidentifier="ERC_expansioncrate" category="Equipment" tags="container,crate" scale="0.5">
+    <Price baseprice="350" sold="false" />
+    
+    <Sprite texture="%ModDir%/Images/Containers/erc_containers_sheet.png" depth="0.6" sourcerect="100,0,100,100" origin="0.5,0.5" />
+    <Body width="120" height="80" density="20" />
+
+    <!-- 
+       [核心逻辑] 
+       attachable="true": 允许安装在墙上
+       pickkey="Use" (默认为E): 允许对其按E拾取/拆卸
+       selectkey="Select" (默认为左键/E): 允许交互打开界面
+       aimable="true": 允许右键瞄准进行放置
+    -->
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="40,-10" handle1="0,0" attachable="true" aimable="true">
+      <!-- 可选: 只有拿扳手才能拆? 如果想空手拆，去掉下面这行 RequiredItem -->
+      <!-- <RequiredItem identifier="wrench" type="Equipped" /> -->
+    </Holdable>
+
+    <!-- 容量: 5x5=25 -->
+    <ItemContainer capacity="25" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable items="smallitem,mediumitem" />
+      <GuiFrame relativesize="0.25,0.4" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 3. elite_ammounit (精兵弹药单元) -->
+  <!-- 机制: 高密度小体积 -->
+  <Item name="" identifier="ERC_elite_ammounit" nameidentifier="ERC_elite_ammounit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.5" fireproof="true" waterproof="true">
+    <Price baseprice="150" />
+    <Sprite texture="%ModDir%/Images/Containers/erc_gear_sheet.png" depth="0.6" sourcerect="0,0,50,50" origin="0.5,0.5" />
+    <Body width="40" height="30" density="10" />
+
+    <!-- 单手物品 -->
+    <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
+
+    <!-- 容量: 3x3=9, 仅限弹药 -->
+    <ItemContainer capacity="9" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable identifiers="ammobox,coilgunammo,railgunammo,depthchargeammo,explosive,grenade" />
+      <GuiFrame relativesize="0.15,0.25" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 4. elite_storageunit (精兵收纳单元) -->
+  <!-- 机制: 通用手持收纳 -->
+  <Item name="" identifier="ERC_elite_storageunit" nameidentifier="ERC_elite_storageunit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.5">
+    <Price baseprice="120" />
+    <Sprite texture="%ModDir%/Images/Containers/erc_gear_sheet.png" depth="0.6" sourcerect="50,0,50,50" origin="0.5,0.5" />
+    <Body width="45" height="30" density="10" />
+    
+    <Holdable slots="Any,RightHand,LeftHand" msg="ItemMsgPickUpSelect" />
+
+    <!-- 容量: 4x4=16 (估算值，CSV未详述确切格子布局，假设为通用中型包) -->
+    <ItemContainer capacity="16" slotsperrow="4" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable items="smallitem,mediumitem" />
+      <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 5. ERC_heavycargo_thruster (ERC重型载货推进器) -->
+  <!-- 核心机制: Propulsion (推进) + ItemContainer (大容量) + Neutral Buoyancy (中性浮力) -->
+  <Item name="" identifier="ERC_heavycargo_thruster" nameidentifier="ERC_heavycargo_thruster" category="Machine" tags="scooter,provocative" scale="0.8">
+    <Price baseprice="600" />
+    
+    <Sprite texture="%ModDir%/Images/Containers/erc_thruster.png" depth="0.6" sourcerect="0,0,200,150" origin="0.5,0.5" />
+    
+    <!-- 物理体积要大一些 -->
+    <Body width="180" height="100" density="15" />
+
+    <!-- 
+      Holdable: 参考 Scooters，双手持握 (controlpose=true)
+    -->
+    <Holdable slots="RightHand+LeftHand" aimpos="90,0" handle1="-40,20" handle2="-40,20" controlpose="true" msg="ItemMsgPickUpSelect">
+      <!-- 开启时提供状态效果 -->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="1.2" setvalue="true" />
+      <StatusEffect type="OnActive" target="This" Charge="-1.0" /> <!-- 耗电 -->
+    </Holdable>
+
+    <!-- 推进系统: 需要电池 -->
+    <Propulsion force="200" usablein="water" particles="bubbles">
+      <RequiredItem items="batterycell,fulguriumbatterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      <StatusEffect type="OnActive" target="Contained" Condition="-0.5" /> <!-- 电池损耗 -->
+      <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnActive" range="500.0" loop="true" />
+    </Propulsion>
+
+    <!-- 货仓: 6格，允许放箱子(crate) -->
+    <ItemContainer capacity="7" slotsperrow="4" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <!-- Slot 1: 必须是电池 (用于驱动推进器) -->
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <Containable identifiers="batterycell,fulguriumbatterycell" />
+      
+      <!-- Slot 2-7: 货物 (Crates) -->
+      <!-- 注意: Crates 很大，这里如果不限制 slotindex，电池可能会跑错位置，通常需要用 SubContainer 或者仔细的 ItemContainer 排序 -->
+      <!-- 简化处理: 允许放 crate, metalcrate -->
+      <Containable identifiers="crate,metalcrate,chemicalcrate,explosivecrate" />
+      
+      <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+    
+    <!-- AI 行为: 避免 AI 乱用 -->
+    <AiTarget soundrange="3000" sonarlabel="entityname.scooter" />
+  </Item>
+
+</Items>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Traditional Chinese" nowhitespace="true" translatedname="中文(繁體)">
+  <deploy>部署</deploy>
+  <entityname.safemetalcrate>安全金屬箱</entityname.safemetalcrate>
+  <entitydescription.safemetalcrate>用於貯存物品的容器，防水防火。</entitydescription.safemetalcrate>
+  <entityname.safeheavycrate>安全重型板條箱</entityname.safeheavycrate>
+  <entitydescription.safeheavycrate>又大又沈的加強加重型板條箱，拿來存放彈藥箱、軌道炮炮彈、潛水服亦或者是異星遺物。雖然這東西搬起來十分費勁，但它能以極大地運力搬運大型物體。</entitydescription.safeheavycrate>
+  <entityname.safewallhangingmetalcrate>安全壁掛金屬箱</entityname.safewallhangingmetalcrate>
+  <entitydescription.safewallhangingmetalcrate>可以快捷放置在墻上的用於貯存物品的容器，防水防火。</entitydescription.safewallhangingmetalcrate>
+  <entityname.whiteeaglehandbag>白鷹手提包</entityname.whiteeaglehandbag>
+  <entitydescription.whiteeaglehandbag>白鷹手提包，防水防火。據說有奇怪的聲音。</entitydescription.whiteeaglehandbag>
+  <entityname.whiteeagleammobag>白鷹彈藥包</entityname.whiteeagleammobag>
+  <entitydescription.whiteeagleammobag>白鷹彈藥包，防水防火</entitydescription.whiteeagleammobag>
+</infotexts>

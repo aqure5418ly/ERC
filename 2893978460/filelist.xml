@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Safe Metal Crate" modversion="1.0.12" corepackage="False" steamworkshopid="2893978460" gameversion="1.9.8.0" expectedhash="25E17850A4AA898776D04A73A1DBBD29" installtime="2024Y 12M 28D 02HR 48MIN 16SEC UTC">
+  <Item file="%ModDir%/safecrate.xml" />
+  <Text file="%ModDir%/Texts/English.xml" />
+  <Text file="%ModDir%/Texts/Russian.xml" />
+  <Text file="%ModDir%/Texts/SimplifiedChinese.xml" />
+  <Text file="%ModDir%/Texts/TraditionalChinese.xml" />
+</contentpackage>

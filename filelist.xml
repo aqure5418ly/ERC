@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="欧罗巴捷运 (ERC Logistics)" modversion="0.1.0" corepackage="False" steamworkshopid="0">
+  <!-- 
+    ERC Mod Manifest
+    设计原则: 扁平化目录结构
+  -->
+
+  <!-- 1. 核心定义 (Base Items) -->
+  <Item file="%ModDir%/Items/Bases/ERC_BaseItems.xml" />
+
+  <!-- 2. 容器与物品 (Containers) -->
+  <Item file="%ModDir%/Items/Containers/ERC_Containers.xml" />
+
+  <!-- 3. 文本本地化 (Texts) -->
+  <Text file="%ModDir%/Texts/Chinese.xml" />
+  <!-- <Text file="%ModDir%/Texts/English.xml" /> -->
+
+</contentpackage>

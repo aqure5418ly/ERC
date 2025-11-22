@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <itemmsgdetachcrowbar>[[use]] Detach (Crowbar)</itemmsgdetachcrowbar>
+  <!-- ekutility_containers.xml -->
+  <entityname.ekutility_shellrack>Large Railgun Shell Rack</entityname.ekutility_shellrack>
+  <entitydescription.ekutility_shellrack>A metal frame designed to hold railgun shells. ( Place by pressing aim + use )</entitydescription.ekutility_shellrack>
+  <entityname.ekutility_shellrack_huge>Huge Railgun Shell Rack</entityname.ekutility_shellrack_huge>
+  <entitydescription.ekutility_shellrack_huge>A wall-mounted magazine designed to hold many railgun shells. ( Place by pressing aim + use )</entitydescription.ekutility_shellrack_huge>
+  <entityname.ekutility_craterack_tall>Tall Crate Rack</entityname.ekutility_craterack_tall>
+  <entitydescription.ekutility_craterack_tall>A taller shelf for neatly storing cargo crates. ( Place by pressing aim + use )</entitydescription.ekutility_craterack_tall>
+  <entityname.ekutility_cart_depthcharge>Rolling Cart</entityname.ekutility_cart_depthcharge>
+  <entitydescription.ekutility_cart_depthcharge>A sturdy metal cart for transporting items like metal crates, depth charge shells, and diving suits.</entitydescription.ekutility_cart_depthcharge>
+  <entityname.ekutility_handtruck>Hand Truck</entityname.ekutility_handtruck>
+  <entitydescription.ekutility_handtruck>A simple hand truck for moving heavy railgun shells with ease.</entitydescription.ekutility_handtruck>
+  <entityname.ekutility_storagecrate>Industrial Strength Crate</entityname.ekutility_storagecrate>
+  <entitydescription.ekutility_storagecrate>A rugged watertight container for storage and transportation.</entitydescription.ekutility_storagecrate>
+  <!-- ekutility_placeablemachines.xml -->
+  <entityname.ekutility_chargingdock1>Portable Charging Dock</entityname.ekutility_chargingdock1>
+  <entitydescription.ekutility_chargingdock1>A wall-mounted battery cell charging dock. ( Place by pressing aim + use )</entitydescription.ekutility_chargingdock1>
+</infotexts>

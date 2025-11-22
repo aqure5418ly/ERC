@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <deploy>Deploy</deploy>
+  <entityname.safemetalcrate>Safe Metal Crate</entityname.safemetalcrate>
+  <entitydescription.safemetalcrate>A vessel in which items may be stored, waterproof, fireproof.</entitydescription.safemetalcrate>
+  <entityname.safeheavycrate>Safe Heavy Crate</entityname.safeheavycrate>
+  <entitydescription.safeheavycrate>A heavy movable crate used to store ammoboxes, railgun shells, diving suits, and even alien artifacts. It will slow you down quit alot but will offer a great way to move large items.</entitydescription.safeheavycrate>
+  <entityname.safewallhangingmetalcrate>Safe Wall Hanging Metal Crate</entityname.safewallhangingmetalcrate>
+  <entitydescription.safewallhangingmetalcrate>A quick wall - mounted storage container, waterproof and fireproof.</entitydescription.safewallhangingmetalcrate>
+  <entityname.whiteeaglehandbag>white eagle handbag</entityname.whiteeaglehandbag>
+  <entitydescription.whiteeaglehandbag>white eagle handbag, waterproof, fireproof.Reports of strange noises.</entitydescription.whiteeaglehandbag>
+  <entityname.whiteeagleammobag>white eagle ammo bag</entityname.whiteeagleammobag>
+  <entitydescription.whiteeagleammobag>white eagle ammo bag, waterproof, fireproof.</entitydescription.whiteeagleammobag>
+</infotexts>
