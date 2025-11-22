@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<infotexts language="English" nowhitespace="false" translatedname="English">
-  <!-- ekgunnery_containers.xml -->
-  <entityname.ekgunnery_magazinestoragesmall>Magazine Storage Small</entityname.ekgunnery_magazinestoragesmall>
-  <entitydescription.ekgunnery_magazinestoragesmall>An armored compartment for storing shells and ammunition boxes.</entitydescription.ekgunnery_magazinestoragesmall>
-  <entityname.ekgunnery_magazinestoragemedium>Magazine Storage Medium</entityname.ekgunnery_magazinestoragemedium>
-  <entitydescription.ekgunnery_magazinestoragemedium>A larger armored compartment for storing shells and ammunition boxes.</entitydescription.ekgunnery_magazinestoragemedium>
-</infotexts>
