@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- =================================================================
+       ERC PLACEABLE CONTAINERS (放置类容器)
+       包含: 遗物袋柜, 磁力扩容箱
+       ================================================================= -->
+
+  <!-- 1. ERC_duffelbagcontainer (遗物袋柜) -->
+  <Item identifier="ERC_duffelbagcontainer" category="Machine" tags="container,crate" scale="0.5">
+    <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab" amount="1" spawnprobability="0.1"/>
+    <Price baseprice="200" sold="false" />
+    
+    <Sprite texture="%ModDir%/Images/Containers/ERC_DuffelBagContainer.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="145" height="85" density="25" />
+    
+    <!-- 操作逻辑: 右键瞄准+左键放置 (Action)，扳手拆卸 -->
+    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="4.0" aimpos="85,0" handle1="-30,14" handle2="30,14" attachable="true" aimable="true">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    
+    <ItemContainer capacity="25" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable identifiers="duffelbag,bodybag,idcard" />
+      <GuiFrame relativesize="0.25,0.4" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 2. ERC_expansioncrate (ERC磁力扩容箱) -->
+  <Item identifier="ERC_expansioncrate" category="Equipment" tags="container,crate" scale="0.5">
+    <Price baseprice="350" sold="false" />
+    
+    <Sprite texture="%ModDir%/Images/Containers/ERC_ExpansionCrate.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="120" height="80" density="20" />
+    
+    <!-- 操作逻辑: 右键瞄准+E键放置 (Select)，空手E键拆卸 -->
+    <!-- aimable="false" 是为了防止物理射线被自身阻挡导致无法贴墙 -->
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="60,0" handle1="0,0" attachable="true" aimable="false">
+    </Holdable>
+    
+    <ItemContainer capacity="25" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable items="smallitem,mediumitem" />
+      <GuiFrame relativesize="0.25,0.4" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+  <!-- 3. ERC_trashcan (ERC 自动清理桶) -->
+  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" scale="0.5" pickdistance="150">
+    <Price baseprice="220" sold="false" />
+    
+    <!-- 直接使用原版前哨站贴图 (SourceRect来自您提供的代码) -->
+    <Sprite texture="%ModDir%/Images/Containers/ERC_TrashCan.png" sourcerect="0,0,150,90" depth="0.86" origin="0.5,0.5" />
+    
+    <Body width="125" height="205" density="20" />
+    
+    <!-- 放置逻辑: 右键+E放置，扳手拆卸 -->
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="60,-10" handle1="0,0" attachable="true" aimable="false">
+       <RequiredItem identifier="wrench" type="Equipped" />
+       
+       <!-- 自定义按钮 UI -->
+       <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+         <GuiFrame relativesize="0.12,0.08" anchor="Center" relativeoffset="0.0,-0.3" style="ItemUI" />
+         <!-- 点击按钮触发清除效果 -->
+         <button text="ERC_ClearTrash">
+           <StatusEffect type="OnUse" target="Contained">
+             <Sound file="Content/Sounds/Damage/StructureBlunt1.ogg" range="500" />
+             <Remove />
+           </StatusEffect>
+         </button>
+       </CustomInterface>
+    </Holdable>
+    
+    <ItemContainer capacity="6" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
+      <!-- 允许放入大部分物品 -->
+      <Containable items="smallitem,mediumitem,crate" />
+    </ItemContainer>
+  </Item>
+
+
+</Items>

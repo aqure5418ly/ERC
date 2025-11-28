@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- =================================================================
+       ERC MACHINES & VEHICLES (机械与载具)
+       包含: 重型载货推进器, 轨道炮转运器
+       ================================================================= -->
+
+  <!-- 1. ERC_heavycargo_thruster (ERC重型载货推进器) -->
+  <Item identifier="ERC_heavycargo_thruster" category="Machine" tags="scooter,provocative,mobilecontainer" scale="0.8" impactsoundtag="impact_metal_light" isshootable="true">
+    <Price baseprice="600" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_HeavyCargoThruster.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="140" height="80" density="15" />
+
+    <Holdable slots="RightHand+LeftHand" blocksplayers="true" controlpose="true" aimable="true" AimPos="80,0" holdpos="80,0" handle1="-40,20" handle2="-40,20" msg="ItemMsgPickUpSelect">
+      <!-- 基础移动速度 (未开启时): 0.8 -->
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      
+      <!-- 雷素电池加速逻辑: 双雷素 -> 速度 +20% -->
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="1.0" setvalue="true">
+        <RequiredItem identifier="fulguriumbatterycell" type="Contained" targetslot="0" />
+        <RequiredItem identifier="fulguriumbatterycell" type="Contained" targetslot="1" />
+      </StatusEffect>
+
+      <StatusEffect type="InWater" target="This" aimable="true" AimPos="80,0" setvalue="true" />
+      <StatusEffect type="NotInWater" target="This" aimable="false" setvalue="true" />
+    </Holdable>
+
+    <!-- 推进力 220，OnUse 时消耗电池 -->
+    <Propulsion force="220" usablein="water" particles="bubbles">
+      <RequiredItem items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2" />
+      <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2" />
+      <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+    </Propulsion>
+
+    <AiTarget soundrange="3000" sonarlabel="entityname.scooter" />
+    
+    <ItemContainer autofill="False" hideitems="false" capacity="0" maxstacksize="1" slotsperrow="2" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
+      <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
+      
+      <!-- Slot 0: 电池槽 1 -->
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+         <Containable items="mobilebattery" />
+      </SubContainer>
+
+      <!-- Slot 1: 电池槽 2 -->
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+         <Containable items="mobilebattery" />
+      </SubContainer>
+
+      <!-- Slot 2-7: 货物槽 (6格) -->
+      <SubContainer capacity="6" maxstacksize="1">
+         <Containable identifiers="duffelbag,ERC_duffelbagcontainer,ERC_expansioncrate,crate,metalcrate,chemicalcrate,explosivecrate,biotoxin_crate,securemetalcrate" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+
+  <!-- 2. ERC_railgun_thruster (ERC重型载货推进器（改）- 轨道炮版) -->
+  <Item identifier="ERC_railgun_thruster" category="Machine" tags="scooter,provocative,mobilecontainer,railgunammocontainer" scale="0.8" impactsoundtag="impact_metal_light" isshootable="true">
+    <Price baseprice="800" />
+    <!-- 暂时复用cratelvl5贴图，逻辑上建议后续更换为带有弹药架的贴图 -->
+    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunThruster.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="140" height="80" density="15" />
+
+    <!-- 保持一致的操控手感 -->
+    <Holdable slots="RightHand+LeftHand" blocksplayers="true" controlpose="true" aimable="true" AimPos="80,0" holdpos="80,0" handle1="-40,20" handle2="-40,20" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      
+      <!-- 雷素电池加速逻辑 -->
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="1.0" setvalue="true">
+        <RequiredItem identifier="fulguriumbatterycell" type="Contained" targetslot="0" />
+        <RequiredItem identifier="fulguriumbatterycell" type="Contained" targetslot="1" />
+      </StatusEffect>
+
+      <StatusEffect type="InWater" target="This" aimable="true" AimPos="80,0" setvalue="true" />
+      <StatusEffect type="NotInWater" target="This" aimable="false" setvalue="true" />
+    </Holdable>
+
+    <!-- 推进力 220 -->
+    <Propulsion force="220" usablein="water" particles="bubbles">
+      <RequiredItem items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2" />
+      <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2" />
+      <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
+    </Propulsion>
+
+    <AiTarget soundrange="3000" sonarlabel="entityname.scooter" />
+    
+    <ItemContainer autofill="False" hideitems="false" capacity="0" maxstacksize="1" slotsperrow="2" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
+      <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
+      
+      <!-- Slot 0: 电池槽 1 -->
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+         <Containable items="mobilebattery" />
+      </SubContainer>
+
+      <!-- Slot 1: 电池槽 2 -->
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <SubContainer capacity="1" maxstacksize="1">
+         <Containable items="mobilebattery" />
+      </SubContainer>
+
+      <!-- Slot 2: 轨道炮弹药架 (10发) -->
+      <!-- 使用一个大的 SubContainer 容纳10发，5个一排 -->
+      <SubContainer capacity="10" maxstacksize="1" slotsperrow="5">
+         <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+</Items>

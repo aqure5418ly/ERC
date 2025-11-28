@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- =================================================================
+       ERC AMMO RACKS (弹药架与弹药库)
+       包含: 炮塔弹药库 (小/中/巨), 轨道炮架 (小/巨)
+       ================================================================= -->
+
+  <!-- 1. ERC_ammostoragesmall (便携型炮塔弹药库) -->
+  <Item identifier="ERC_ammostoragesmall" category="Machine" tags="container,ammoboxcontainer" scale="0.5">
+    <Price baseprice="150" sold="false" />
+    <!-- 占位贴图 -->
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Small.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="120" height="80" density="25" />
+    
+    <!-- 操作: 右键+左键放置，扳手拆卸 -->
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="4.0" aimpos="70,0" handle1="0,0" attachable="true" aimable="false">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    
+    <!-- 容量: 设定为 4 格 (便携型) -->
+    <ItemContainer capacity="4" slotsperrow="2" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
+      <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+  <!-- 2. ERC_ammostoragemedium (舰载型炮塔弹药库) -->
+  <Item identifier="ERC_ammostoragemedium" category="Machine" tags="container,ammoboxcontainer" scale="0.5">
+    <Price baseprice="300" sold="false" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Medium.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="120" height="80" density="25" />
+    
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="70,0" handle1="0,0" attachable="true" aimable="false">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    
+    <!-- 容量: 设定为 8 格 (标准型) -->
+    <ItemContainer capacity="8" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
+      <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+  <!-- 3. ERC_ammostoragehuge (超巨型炮塔弹药库) -->
+  <Item identifier="ERC_ammostoragehuge" category="Machine" tags="container,ammoboxcontainer" scale="0.6">
+    <Price baseprice="600" sold="false" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Huge.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="140" height="90" density="25" />
+    
+    <!-- 巨型设备拆卸时间更长 -->
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    
+    <!-- 容量: 设定为 16 格 (巨型) -->
+    <ItemContainer capacity="16" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
+      <GuiFrame relativesize="0.3,0.4" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+  <!-- 4. ERC_railgunstoragesmall (便携型轨道炮架) -->
+  <Item identifier="ERC_railgunstoragesmall" category="Machine" tags="container,railgunammocontainer" scale="0.5">
+    <Price baseprice="200" sold="false" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Small.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="120" height="80" density="25" />
+    
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="4.0" aimpos="70,0" handle1="0,0" attachable="true" aimable="false">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    
+    <!-- 容量: 6发炮弹 -->
+    <ItemContainer capacity="6" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
+      <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+  <!-- 5. ERC_railgunstoragehuge (交叠式轨道炮架) -->
+  <Item identifier="ERC_railgunstoragehuge" category="Machine" tags="container,railgunammocontainer" scale="0.6">
+    <Price baseprice="500" sold="false" />
+    <Sprite texture="%ModDir%/Images/Containers/cratelvl5.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="140" height="90" density="25" />
+    
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+    
+    <!-- 容量: 20发炮弹 (交叠设计) -->
+    <ItemContainer capacity="20" slotsperrow="5" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
+      <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+</Items>

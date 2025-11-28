@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contentpackage name="欧罗巴捷运 (ERC Logistics)" modversion="0.1.0" corepackage="False" steamworkshopid="0">
-  <!-- 
-    ERC Mod Manifest
-    设计原则: 扁平化目录结构
-  -->
-
-  <!-- 1. 核心定义 (Base Items) -->
+  
+  <!-- 1. 基础定义 -->
   <Item file="%ModDir%/Items/Bases/ERC_BaseItems.xml" />
+  
+  <!-- 2. 放置类容器 (柜子、挂箱) -->
+  <Item file="%ModDir%/Items/Containers/ERC_PlaceableContainers.xml" />
 
-  <!-- 2. 容器与物品 (Containers) -->
-  <Item file="%ModDir%/Items/Containers/ERC_Containers.xml" />
+  <!-- 3. 弹药架与弹药库 (新增) -->
+  <Item file="%ModDir%/Items/Containers/ERC_AmmoRacks.xml" />
 
-  <!-- 3. 文本本地化 (Texts) -->
-  <Text file="%ModDir%/Texts/Chinese.xml" />
-  <!-- <Text file="%ModDir%/Texts/English.xml" /> -->
+  <!-- 4. 个人装备 (手提包、弹药包) -->
+  <Item file="%ModDir%/Items/Gear/ERC_HandheldGear.xml" />
 
+  <!-- 5. 机械与载具 (推进器) -->
+  <Item file="%ModDir%/Items/Machines/ERC_Vehicles.xml" />
+  
+  <!-- 5. 停泊与充电站  -->
+  <Item file="%ModDir%/Items/Machines/ERC_DockingStations.xml" />
+
+  <!-- 6. 文本 -->
+  <Text file="%ModDir%/Texts/SimplifiedChinese.xml" />
+  
 </contentpackage>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Simplified Chinese" nowhitespace="true" translatedname="中文(简体)">
+  
+  <entityname.ERC_duffelbagcontainer>遗物袋柜</entityname.ERC_duffelbagcontainer>
+  <entitydescription.ERC_duffelbagcontainer>遗物是囚困余生的枷锁，温暖是冰海春天的残忍。执政官扔下了一卷冰冷的擢升文书，却被墙角烂醉的舰长视若无睹，他只是一直小声嘟囔着几个名字：“这是他的失物吗？你是他的家人吗？他是你的骄傲吗？”无意间，他长成了参天巨树，可与他一同洒在冰洋的种子却再无机会发芽。(可容纳25组遗物袋)</entitydescription.ERC_duffelbagcontainer>
+  
+  <entityname.ERC_expansioncrate>ERC磁力扩容箱</entityname.ERC_expansioncrate>
+  <entitydescription.ERC_expansioncrate>“捷运必达，安心所托！”为提高速递潜艇的杂物携载量，欧罗巴捷运快递公司（ERC）针对潜艇结构特别设计了这一款扩容箱。该扩容箱可作为钢柜的挂载部件，从而扩大钢柜容量；同时箱体设计有强磁背件，借此扩容箱得以轻松固定在潜艇钢结构的任何平面上。箱体除了常规三防外，新的置物架设计避免了倾倒或撞击造成的杂物散落。(右键+E放置，空手E拆卸。可放25组物品)</entitydescription.ERC_expansioncrate>
+
+  <entityname.ERC_elite_ammounit>精兵弹药单元</entityname.ERC_elite_ammounit>
+  <entitydescription.ERC_elite_ammounit>新款便携弹药盒，防水防火，大大提高了单兵弹药与爆破物的携载量。在战斗烈度逐渐升温的今天，这款便携的弹药单元的横空出世，无疑提高了每一位士兵的生存期望。至于它是否会让战斗烈度进一步升温，你先别管。(单手物品，可携带9组弹药/爆炸物)</entitydescription.ERC_elite_ammounit>
+
+  <entityname.ERC_elite_storageunit>精兵收纳单元</entityname.ERC_elite_storageunit>
+  <entitydescription.ERC_elite_storageunit>新款便携收纳卷，防水防火，大大提高了单兵药品与杂物的携载量。</entitydescription.ERC_elite_storageunit>
+
+  <entityname.ERC_heavycargo_thruster>ERC重型载货推进器</entityname.ERC_heavycargo_thruster>
+  <entitydescription.ERC_heavycargo_thruster>“捷运必达，安心所托！”最早，水下货运推进器被用于穿梭艇无法到达的矿洞深处中，运回矿物或为常驻矿工提供补给。为提高快递的基层覆盖率，欧罗巴捷运快递公司（ERC）基于推进器的现有结构进行了改进，提高了螺旋桨性能，并使其能同时运载更多的货物。新推进器的问世大大降低了超短途运输对穿梭艇的依赖性。(可放6个ERC箱，用于搬沉船或者进洞采矿，放置可漂浮)</entitydescription.ERC_heavycargo_thruster>
+
+  <entityname.ERC_railgun_thruster>ERC重型载货推进器（改）</entityname.ERC_railgun_thruster>
+  <entitydescription.ERC_railgun_thruster>“捷运必达，安心所托！”此款推进器针对沉船打捞业务进行了改装，将原有的箱子收纳装置改成了轻便的轨道炮架，打捞人员可以轻松快速地将轨道炮回收，防止因环境压力造成的轨道炮殉爆。)</entitydescription.ERC_railgun_thruster>
+
+
+  <entityname.ERC_ammostoragesmall>便携型炮塔弹药库</entityname.ERC_ammostoragesmall>
+  <entitydescription.ERC_ammostoragesmall>方便携带的炮塔弹药储存手段，虽然存储能力不如板条箱，但胜在可以便捷地固定在墙壁上，让您的炮弹能在安全官四处乱飞时，岿然不动。（右键+E放置，扳手拆卸）</entitydescription.ERC_ammostoragesmall>
+
+  <entityname.ERC_ammostoragemedium>舰载型炮塔弹药库</entityname.ERC_ammostoragemedium>
+  <entitydescription.ERC_ammostoragemedium>绝大多数舰长都认可的选择，小型潜艇的好朋友。</entitydescription.ERC_ammostoragemedium>
+
+  <entityname.ERC_ammostoragehuge>超巨型炮塔弹药库</entityname.ERC_ammostoragehuge>
+  <entitydescription.ERC_ammostoragehuge>在安全储存限度内，空间利用率最高的一款新式弹药库，其能容纳的弹药足够应付一整个巡回的敌人。</entitydescription.ERC_ammostoragehuge>
+
+  <entityname.ERC_railgunstoragesmall>便携型轨道炮架</entityname.ERC_railgunstoragesmall>
+  <entitydescription.ERC_railgunstoragesmall>方便携带的轨道炮炮架，就容量方面与旧款的炮架并无不同，但炮架主体采用铝材焊制，轻便可靠，可以根据爱好进行自由调整。（右键+E放置，扳手拆卸）</entitydescription.ERC_railgunstoragesmall>
+
+  <entityname.ERC_railgunstoragehuge>交叠式轨道炮架</entityname.ERC_railgunstoragehuge>
+  <entitydescription.ERC_railgunstoragehuge>该轨道炮炮架采用交叠式设计，极大提高了潜艇内轨道炮的收纳效率，舰长们再也不必因为潜艇上杂乱而拥挤的空间苦恼了。</entitydescription.ERC_railgunstoragehuge>
+
+  <entityname.ERC_trashcan>ERC 自动清理桶</entityname.ERC_trashcan>
+  <entitydescription.ERC_trashcan>可爱的垃圾桶，很喜欢吃你不要的东西。点击界面上的按钮即可永久销毁其中的物品。</entitydescription.ERC_trashcan>
+  <ERC_ClearTrash>销毁物品</ERC_ClearTrash>
+  
+  <entityname.ERC_thruster_dock>推进器悬浮装置</entityname.ERC_thruster_dock>
+  <entitydescription.ERC_thruster_dock>用于存储大型推进器的收纳装置，可为放置在其中的大型推进器充电，需要接电。</entitydescription.ERC_thruster_dock>
+
+  <entityname.ERC_exosuit_rack>外骨骼置物架</entityname.ERC_exosuit_rack>
+  <entitydescription.ERC_exosuit_rack>专用的重型外骨骼存放架，连接电源后可为外骨骼的电池充电并补充氧气。</entitydescription.ERC_exosuit_rack>
+
+  <entityname.ERC_divingsuit_locker_large>大型潜水服柜</entityname.ERC_divingsuit_locker_large>
+  <entitydescription.ERC_divingsuit_locker_large>针对大型潜艇船员设计的潜水服柜，可同时容纳并维护15套潜水服。连接电源后可自动补充氧气。</entitydescription.ERC_divingsuit_locker_large>
+  
+  <entityname.ERC_railgun_thruster>轨道炮转运器</entityname.ERC_railgun_thruster>
+  <entitydescription.ERC_railgun_thruster>“捷运必达，安心所托！”此款推进器针对沉船打捞业务进行了改装，将原有的箱子收纳装置改成了轻便的轨道炮架，打捞人员可以轻松快速地将轨道炮回收，防止因环境压力造成的轨道炮殉爆。</entitydescription.ERC_railgun_thruster>
+
+  <entityname.ERC_elite_medicalunit>战地医疗单元</entityname.ERC_elite_medicalunit>
+  <entitydescription.ERC_elite_medicalunit>根据木卫二针剂与药品专门设计的便携式医疗包，三防与极高的空间利用率只是他的基础功能。带上它，让随身携易碎针剂成为可能！带上它，让医生不再苦恼找不到药放到了哪里！有了它，医生是移动药柜的说法可就再也不是开玩笑了。你最好希望你的船队医生配备有这个医疗包，虽然昂贵的价格让列装它成为一种奢望。(单手物品，可放在物品栏，可携带16组药品)</entitydescription.ERC_elite_medicalunit>
+
+  <!-- 覆写: 小型器官冷藏箱 (使用原版 ID) -->
+  <entityname.organtoolbox>小型器官冷藏箱</entityname.organtoolbox>
+  <entitydescription.organtoolbox>可以存放人体器官。里面的应该不是你船员的器官吧？(Mod 扩容版)</entitydescription.organtoolbox>
+
+</infotexts>

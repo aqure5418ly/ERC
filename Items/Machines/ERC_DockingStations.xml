@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- =================================================================
+       ERC DOCKING & CHARGING STATIONS (停泊与充电站)
+       包含: 推进器悬浮装置, 外骨骼置物架, 大型潜水服柜
+       ================================================================= -->
+
+  <!-- 1. ERC_thruster_dock (推进器悬浮装置) -->
+  <!-- 
+    功能: 储存推进器 + 充电
+    Tag: batterycellrecharger (充电用)
+  -->
+  <Item identifier="ERC_thruster_dock" category="Machine" tags="container,charger,batterycellrecharger" scale="0.6">
+    <Price baseprice="500" sold="false" />
+    
+    <!-- 占位贴图: 大尺寸 -->
+    <Sprite texture="%ModDir%/Images/Containers/cratelvl5.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="150" height="90" density="30" />
+
+    <!-- 同样支持右键+E放置，扳手拆卸 -->
+    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="true">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+
+    <!-- 耗电组件: 充电必须接电 -->
+    <Powered PowerConsumption="200" IsActive="True" MinVoltage="0.1">
+      <GuiFrame relativesize="0.2,0.15" anchor="Center" style="ItemUI" />
+    </Powered>
+
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+    </ConnectionPanel>
+
+    <!-- 容量: 1个，限制只能放 ERC 的推进器 -->
+    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="ERC_heavycargo_thruster,ERC_railgun_thruster" />
+      <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 2. ERC_exosuit_rack (外骨骼置物架) -->
+  <!-- 
+    功能: 储存外骨骼 + 充电 + 充氧
+    Tag: batterycellrecharger (充电), oxygentankrefiller (充氧)
+  -->
+  <Item identifier="ERC_exosuit_rack" category="Machine" tags="container,charger,batterycellrecharger,oxygentankrefiller,divingsuitcontainer" scale="0.6">
+    <Price baseprice="800" sold="false" />
+    
+    <!-- 占位贴图: 竖长尺寸 -->
+    <Sprite texture="%ModDir%/Images/Containers/cratelvl4.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="150" height="90" density="30" />
+
+    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="true">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+
+    <!-- 耗电组件 -->
+    <Powered PowerConsumption="500" IsActive="True" MinVoltage="0.1">
+      <GuiFrame relativesize="0.2,0.15" anchor="Center" style="ItemUI" />
+    </Powered>
+
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+    </ConnectionPanel>
+
+    <!-- 容量: 1个外骨骼 -->
+    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="exosuit" />
+      <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+
+  <!-- 3. ERC_divingsuit_locker_large (大型潜水服柜) -->
+  <!-- 
+    功能: 储存15套潜水服 + 充氧
+    Tag: oxygentankrefiller (充氧)
+  -->
+  <Item identifier="ERC_divingsuit_locker_large" category="Machine" tags="container,divingsuitcontainer,oxygentankrefiller" scale="0.8">
+    <Price baseprice="1000" sold="false" />
+    
+    <!-- 
+      修正贴图: 使用 ERC_divingsuit_locker_large.png
+      修正尺寸: 269x333 (原版钢柜大小)
+    -->
+    <Sprite texture="%ModDir%/Images/Containers/ERC_divingsuit_locker_large.png" depth="0.8" sourcerect="0,0,269,333" origin="0.5,0.5" />
+    
+    <!-- 调整碰撞体: 匹配新贴图的宽高 (稍微留一点边距) -->
+    <Body width="260" height="320" density="40" />
+
+    <!-- 
+      调整放置判定: 
+      aimpos="140,0": 碰撞体宽260(半径130)，所以aimpos设为140以伸出碰撞体，确保能贴墙。
+    -->
+    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="140,0" handle1="0,0" attachable="true" aimable="true">
+       <RequiredItem identifier="wrench" type="Equipped" />
+    </Holdable>
+
+    <!-- 耗电组件: 充氧需要电 -->
+    <Powered PowerConsumption="200" IsActive="True" MinVoltage="0.1">
+      <GuiFrame relativesize="0.2,0.15" anchor="Center" style="ItemUI" />
+    </Powered>
+
+    <ConnectionPanel selectkey="Action" canbeselected="true" msg="ItemMsgRewireScrewdriver" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.32" minsize="400,350" maxsize="480,420" anchor="Center" style="ConnectionPanel" />
+      <RequiredItem items="screwdriver" type="Equipped" />
+      <input name="power_in" displayname="connection.powerin" />
+    </ConnectionPanel>
+
+    <!-- 容量: 15套 -->
+    <ItemContainer capacity="15" slotsperrow="5" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <!-- 允许放入: 潜水服, 战斗潜水服, 深渊潜水服, PUCS -->
+      <Containable identifiers="divingsuit,combatdivingsuit,abyssdivingsuit,pucs,slipsuit" />
+      <GuiFrame relativesize="0.4,0.5" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+</Items>
