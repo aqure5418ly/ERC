@@ -7,45 +7,29 @@
 
   <!-- 1. ERC_elite_ammounit (精兵弹药单元) -->
   <Item identifier="ERC_elite_ammounit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.5" fireproof="true" waterproof="true">
-    <Price baseprice="150" />
+    <Price baseprice="200" sold="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
+      <Price storeidentifier="merchantresearch" multiplier="1.0" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.8" minavailable="4" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
+    </Price>
     <Sprite texture="%ModDir%/Images/Containers/ERC_EliteAmmoUnit.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
-    
-    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
-        <!-- 1. 购买属性 -->
-    <!-- 基价 200 -->
-    <Price baseprice="200" sold="true">
-      <!-- 前哨: 0.9倍, 卖2个 -->
-      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="2" />
-      <!-- 城市: 1.25倍, 卖4个 -->
-      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
-      <!-- 研究: 1.0倍, 卖2个 -->
-      <Price storeidentifier="merchantresearch" multiplier="1.0" minavailable="2" />
-      <!-- 军事: 1.1倍, 卖1个 -->
-      <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="1" />
-      <!-- 矿站: 0.8倍, 卖4个 -->
-      <Price storeidentifier="merchantmine" multiplier="0.8" minavailable="4" />
-      <!-- 工程师商人 (额外添加，通常这类工具包工程师会卖) -->
-      <Price storeidentifier="merchantengineering" multiplier="1.0" minavailable="2" />
-    </Price>
 
-    <!-- 2. 分解属性 -->
-    <!-- 产出: 钢筋*1, 活性纤维(假设为有机纤维)*1, 橡胶*1 -->
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
     <Deconstruct time="10">
       <Item identifier="steel" amount="1" />
-      <Item identifier="organicfiber" amount="1" /> <!-- 对应活性纤维 -->
-      <Item identifier="rubber" amount="1" />
+      <Item identifier="organicfiber" amount="1" />
+      <Item identifier="plastic" amount="1" />
     </Deconstruct>
 
-    <!-- 3. 制造属性 -->
-    <!-- 需求: 钛铝合金*1, 防弹纤维*1, 活性纤维*2, 橡胶*2 -->
-    <!-- 技能需求: 机械 30 -->
     <Fabricate suitablefabricators="fabricator" requiredtime="20">
       <RequiredSkill identifier="mechanical" level="30" />
       <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
       <RequiredItem identifier="ballisticfiber" amount="1" />
-      <RequiredItem identifier="organicfiber" amount="2" /> <!-- 对应活性纤维 -->
-      <RequiredItem identifier="rubber" amount="2" />
+      <RequiredItem identifier="organicfiber" amount="2" />
+      <RequiredItem identifier="plastic" amount="2" />
     </Fabricate>
     <!-- 特性: 适配EA弹药，且使用 SubContainer 实现堆叠数+2 -->
     <ItemContainer capacity="9" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect" drawinventory="true">
@@ -60,12 +44,32 @@
 
   <!-- 2. ERC_elite_storageunit (精兵收纳单元) -->
   <Item identifier="ERC_elite_storageunit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.5">
-    <Price baseprice="120" />
+    <Price baseprice="200" sold="true">
+      <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
+      <Price storeidentifier="merchantresearch" multiplier="1.0" minavailable="2" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="0.8" minavailable="4" />
+    </Price>
     <Sprite texture="%ModDir%/Images/Containers/ERC_EliteStorageUnit.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
-    
+
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
-    
+
+    <Deconstruct time="10">
+      <Item identifier="steel" amount="1" />
+      <Item identifier="organicfiber" amount="1" />
+      <Item identifier="rubber" amount="1" />
+    </Deconstruct>
+
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="1" />
+      <RequiredItem identifier="ballisticfiber" amount="1" />
+      <RequiredItem identifier="organicfiber" amount="2" />
+      <RequiredItem identifier="rubber" amount="2" />
+    </Fabricate>
+
     <ItemContainer capacity="16" slotsperrow="4" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable items="smallitem,mediumitem" />
       <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
@@ -74,13 +78,24 @@
 
   <!-- 3. ERC_elite_medicalunit (战地医疗单元) -->
   <Item identifier="ERC_elite_medicalunit" category="Equipment" tags="smallitem,mobilecontainer,medicalcontainer" scale="0.5" fireproof="true" waterproof="true">
-    <Price baseprice="200" />
+    <Price baseprice="275" sold="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
+    </Price>
     <Sprite texture="%ModDir%/Images/Containers/ERC_EliteMedicalUnit.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
-    
+
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="2.0" aimpos="60,0" holdpos="0,-20" attachable="true" aimable="false">
     </Holdable>
-    
+
+    <Deconstruct time="10">
+      <Item identifier="plastic" amount="1" />
+      <Item identifier="ballisticfiber" amount="1" />
+    </Deconstruct>
+
     <ItemContainer capacity="16" slotsperrow="4" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect" drawinventory="true">
       <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
       <Containable tags="medical,chem,poison,geneticmaterial,syringe,bandage,bloodpack,alienblood,antidote,stimulant" />
