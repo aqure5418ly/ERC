@@ -51,10 +51,6 @@
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
 
-    <Deconstruct />
-
-    <Fabricate />
-    
     <!-- 容量: 12格 (3x4) -->
     <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
@@ -72,11 +68,6 @@
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
-
-    <Deconstruct />
-
-    <Fabricate />
-    
     <!-- 容量: 24格 (4x6) -->
     <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
@@ -127,11 +118,6 @@
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
-
-    <Deconstruct />
-
-    <Fabricate />
-    
     <!-- 容量: 12发炮弹 (2x6) -->
     <ItemContainer capacity="12" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
