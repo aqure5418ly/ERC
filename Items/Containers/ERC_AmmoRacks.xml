@@ -12,12 +12,12 @@
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Small.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
     
-    <!-- 操作: 右键+左键放置，扳手拆卸 -->
+    <!-- 操作: 右键+E放置，扳手拆卸 -->
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="4.0" aimpos="70,0" handle1="0,0" attachable="true" aimable="false">
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
     
-    <!-- 容量: 设定为 4 格 (便携型) -->
+    <!-- 容量: 4格 (2x2) -->
     <ItemContainer capacity="4" slotsperrow="2" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
       <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
@@ -34,10 +34,10 @@
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
     
-    <!-- 容量: 设定为 8 格 (标准型) -->
-    <ItemContainer capacity="8" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <!-- 容量: 12格 (3x4) -->
+    <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
-      <GuiFrame relativesize="0.25,0.3" anchor="Center" style="ItemUI" />
+      <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
 
@@ -52,10 +52,10 @@
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
     
-    <!-- 容量: 设定为 16 格 (巨型) -->
-    <ItemContainer capacity="16" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <!-- 容量: 24格 (4x6) -->
+    <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
-      <GuiFrame relativesize="0.3,0.4" anchor="Center" style="ItemUI" />
+      <GuiFrame relativesize="0.4,0.5" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
 
@@ -69,27 +69,27 @@
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
     
-    <!-- 容量: 6发炮弹 -->
+    <!-- 容量: 6发炮弹 (1x6) -->
     <ItemContainer capacity="6" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
-      <GuiFrame relativesize="0.25,0.2" anchor="Center" style="ItemUI" />
+      <GuiFrame relativesize="0.3,0.15" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
 
   <!-- 5. ERC_railgunstoragehuge (交叠式轨道炮架) -->
   <Item identifier="ERC_railgunstoragehuge" category="Machine" tags="container,railgunammocontainer" scale="0.6">
     <Price baseprice="500" sold="false" />
-    <Sprite texture="%ModDir%/Images/Containers/cratelvl5.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Huge.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="140" height="90" density="25" />
     
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
        <RequiredItem identifier="wrench" type="Equipped" />
     </Holdable>
     
-    <!-- 容量: 20发炮弹 (交叠设计) -->
-    <ItemContainer capacity="20" slotsperrow="5" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <!-- 容量: 12发炮弹 (2x6) -->
+    <ItemContainer capacity="12" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
-      <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
+      <GuiFrame relativesize="0.3,0.25" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
 

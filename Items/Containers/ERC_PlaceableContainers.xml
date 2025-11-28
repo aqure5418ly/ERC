@@ -76,5 +76,36 @@
     </ItemContainer>
   </Item>
 
+<!-- 4. ERC_armamentcrate (ERC武备框架箱) -->
+  <Item identifier="ERC_armamentcrate" category="Equipment" tags="container,crate" scale="0.5">
+    <Price baseprice="400" sold="false" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_ArmamentCrate.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="145" height="85" density="30" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-40" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+    <ItemContainer capacity="10" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable identifiers="ammobox,coilgunammo,railgunammo,depthchargeammo,divingsuit,combatdivingsuit,abyssdivingsuit,pucs,slipsuit,alienartifact" />
+      <GuiFrame relativesize="0.25,0.25" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
+  <!-- 5. ERC_storagecrate (ERC储运集装箱) -->
+  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate" scale="0.5" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
+    <Price baseprice="500" sold="false" />
+    
+    <!-- 独立贴图: ERC_StorageCrate.png (源自 cratelvl4) -->
+    <Sprite texture="%ModDir%/Images/Containers/ERC_StorageCrate.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Body width="145" height="85" density="30" />
+    
+    <!-- 操作: 右键+E放置 (Select)，空手E拆卸 -->
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="60,0" handle1="0,0" attachable="true" aimable="false">
+    </Holdable>
+    
+    <!-- 容量: 36格 (6x6) -->
+    <ItemContainer capacity="36" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+      <Containable items="smallitem,mediumitem" />
+      <GuiFrame relativesize="0.3,0.4" anchor="Center" style="ItemUI" />
+    </ItemContainer>
+  </Item>
+
 
 </Items>

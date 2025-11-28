@@ -58,4 +58,11 @@
   <entityname.organtoolbox>小型器官冷藏箱</entityname.organtoolbox>
   <entitydescription.organtoolbox>可以存放人体器官。里面的应该不是你船员的器官吧？(Mod 扩容版)</entitydescription.organtoolbox>
 
+  <entityname.ERC_armamentcrate>ERC武备框架箱</entityname.ERC_armamentcrate>
+  <entitydescription.ERC_armamentcrate>“捷运必达，安心所托！”随着业务的不断扩大，欧罗巴捷运快递公司（ERC）获得了联盟军火运输的许可，欧捷递为此新开发的武备框架箱也就此进入大众视野。为保证军火运输的安全性，其整箱采用耐用钢一体压铸工艺，极大保障了内容物安全。同时欧捷递也对潜水服做了适配，让绝大多数潜水服的都可以置入其中。即使发布之初单个箱体造价高昂，也仍旧有许多船队为此买单。(可放10份弹药箱或潜水服)</entitydescription.ERC_armamentcrate>
+
+  <entityname.ERC_storagecrate>ERC储运集装箱</entityname.ERC_storagecrate>
+  <entitydescription.ERC_storagecrate>“捷运必达，安心所托！”面对愈加复杂的快递运输业务，欧罗巴捷运快递公司（ERC）发明了新式储藏-运输集装一体箱。整箱箱体防水防火防爆防弹，兼具便携性与挂载属性，让货物不惧外界侵扰！问世时曾受到船队与站点的疯狂抢购。同时，欧捷递面向船队提供的箱体经过重新设计与改色，以此与公司的常规快递货物进行区分。（右键+E放置，空手E拆卸。可放36组物品）</entitydescription.ERC_storagecrate>
+
+
 </infotexts>
