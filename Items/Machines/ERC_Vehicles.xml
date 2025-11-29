@@ -7,16 +7,22 @@
 
   <!-- 1. ERC_heavycargo_thruster (ERC重型载货推进器) -->
   <Item identifier="ERC_heavycargo_thruster" category="Machine" tags="scooter,provocative,mobilecontainer" scale="0.8" impactsoundtag="impact_metal_light" isshootable="true">
-    <Price baseprice="600" sold="true" />
-    <Sprite texture="%ModDir%/Images/Containers/ERC_HeavyCargoThruster.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Price baseprice="225" sold="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.0" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
+    </Price>
+    <Sprite texture="%ModDir%/Images/Containers/ERC_HeavyCargoThruster.png" depth="0.6" sourcerect="0,0,450,350" origin="0.5,0.5" />
     <Body width="140" height="80" density="15" />
 
     <Holdable slots="RightHand+LeftHand" blocksplayers="true" controlpose="true" aimable="true" AimPos="80,0" holdpos="80,0" handle1="-40,20" handle2="-40,20" msg="ItemMsgPickUpSelect">
       <!-- 基础移动速度 (未开启时): 0.8 -->
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.8" setvalue="true" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="1" setvalue="true" />
       
       <!-- 雷素电池加速逻辑: 双雷素 -> 速度 +20% -->
-      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="1.0" setvalue="true">
+      <StatusEffect type="OnUse" target="Character" SpeedMultiplier="1.2" setvalue="true">
         <RequiredItem identifier="fulguriumbatterycell" type="Contained" targetslot="0" />
         <RequiredItem identifier="fulguriumbatterycell" type="Contained" targetslot="1" />
       </StatusEffect>
@@ -26,27 +32,61 @@
     </Holdable>
 
     <Deconstruct time="22">
-      <Item identifier="steel" amount="2" />
-      <Item identifier="titaniumaluminiumalloy" amount="1" />
-      <Item identifier="copper" amount="2" />
-      <Item identifier="rubber" amount="3" />
+      <Item identifier="plastic" amount="2" />
+      <Item identifier="steel" amount="1" />
+      <Item identifier="fpgacircuit" amount="1" />
     </Deconstruct>
 
     <Fabricate suitablefabricators="fabricator" requiredtime="22">
       <RequiredSkill identifier="mechanical" level="40" />
-      <RequiredItem identifier="steel" amount="4" />
+      <RequiredItem identifier="steel" amount="2" />
       <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
-      <RequiredItem identifier="copper" amount="4" />
-      <RequiredItem identifier="rubber" amount="6" />
+      <RequiredItem identifier="fpgacircuit" amount="2" />
     </Fabricate>
 
     <!-- 推进力 220，OnUse 时消耗电池 -->
-    <Propulsion force="220" usablein="water" particles="bubbles">
+    <Propulsion force="265" usablein="water" particles="bubbles">
       <RequiredItem items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" />
       <StatusEffect type="OnUse" target="Contained" targetslot="0" Condition="-0.2" />
       <StatusEffect type="OnUse" target="Contained" targetslot="1" Condition="-0.2" />
       <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
     </Propulsion>
+
+
+    <!-- 灯光系统 -->
+    <LightComponent LightColor="255,255,255,200" range="800" powerconsumption="10" IsOn="true" allowingameediting="false">
+      <LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.5" size="1.0,1.0" />
+      <StatusEffect type="OnActive" target="Contained" Condition="-0.05" />
+    </LightComponent>
+    <!-- 泛光 -->
+    <LightComponent LightColor="200,240,255,100" range="200" powerconsumption="0" IsOn="true" allowingameediting="false" />
+
+    <!-- 维修系统 -->
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.2" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" mincondition="0.0" maxcondition="50.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="lacerations" strength="5" />
+      </StatusEffect>
+    </Repairable>
+
+    <!-- GUI 控制 (灯光/喇叭) -->
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.1" anchor="BottomLeft" relativeoffset="0.05,0.1" style="ItemUI" />
+      <TickBox text="entityname.flashlight">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="entitydescription.bikehorn">
+        <StatusEffect type="OnUse" target="This">
+          <Sound file="Content/Items/Weapons/honk.ogg" range="1000" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
 
     <AiTarget soundrange="3000" sonarlabel="entityname.scooter" />
     
@@ -56,13 +96,17 @@
       <!-- Slot 0: 电池槽 1 -->
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <SubContainer capacity="1" maxstacksize="1">
-         <Containable items="mobilebattery" />
+        <Containable items="mobilebattery" Hide="true">
+          <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+        </Containable>
       </SubContainer>
 
       <!-- Slot 1: 电池槽 2 -->
       <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <SubContainer capacity="1" maxstacksize="1">
-         <Containable items="mobilebattery" />
+        <Containable items="mobilebattery" Hide="true">
+          <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+        </Containable>
       </SubContainer>
 
       <!-- Slot 2-7: 货物槽 (6格) -->
@@ -74,9 +118,15 @@
 
   <!-- 2. ERC_railgun_thruster (ERC重型载货推进器（改）- 轨道炮版) -->
   <Item identifier="ERC_railgun_thruster" category="Machine" tags="scooter,provocative,mobilecontainer,railgunammocontainer" scale="0.8" impactsoundtag="impact_metal_light" isshootable="true">
-    <Price baseprice="800" sold="true" />
+    <Price baseprice="265" sold="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.0" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.0" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
     <!-- 暂时复用cratelvl5贴图，逻辑上建议后续更换为带有弹药架的贴图 -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunThruster.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunThruster.png" depth="0.6" sourcerect="0,0,450,250" origin="0.5,0.5" />
     <Body width="140" height="80" density="15" />
 
     <!-- 保持一致的操控手感 -->
@@ -94,20 +144,14 @@
     </Holdable>
 
     <Deconstruct time="25">
-      <Item identifier="steel" amount="3" />
-      <Item identifier="titaniumaluminiumalloy" amount="1" />
-      <Item identifier="physicorium" amount="1" />
-      <Item identifier="copper" amount="2" />
-      <Item identifier="rubber" amount="4" />
+      <Item identifier="ERC_heavycargo_thruster" amount="1" />
+      <Item identifier="aluminium" amount="2" />
     </Deconstruct>
 
     <Fabricate suitablefabricators="fabricator" requiredtime="25">
       <RequiredSkill identifier="mechanical" level="50" />
-      <RequiredItem identifier="steel" amount="6" />
-      <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
-      <RequiredItem identifier="physicorium" amount="2" />
-      <RequiredItem identifier="copper" amount="5" />
-      <RequiredItem identifier="rubber" amount="8" />
+      <RequiredItem identifier="ERC_heavycargo_thruster" amount="1" />
+      <RequiredItem identifier="aluminium" amount="4" />
     </Fabricate>
 
     <!-- 推进力 220 -->
@@ -118,6 +162,47 @@
       <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true" />
     </Propulsion>
 
+    <!-- 灯光系统 -->
+    <LightComponent LightColor="255,200,150,150" range="300" powerconsumption="10" Flickerspeed="0.4" IsOn="false" allowingameediting="false">
+      <StatusEffect type="OnActive" targettype="Contained" targetslot="1" Condition="-0.05">
+        <RequiredItem items="mobilebattery" type="Contained" targetslot="1" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" Tags="provocative" />
+    </LightComponent>
+    <LightComponent LightColor="255,200,150,180" range="700" powerconsumption="10" Flickerspeed="0.4" IsOn="false" allowingameediting="false">
+      <LightTexture texture="Content/Lights/lightcone.png" origin="0.05, 0.5" size="1.0,1.0" />
+      <StatusEffect type="OnActive" targettype="Contained" targetslot="0" Condition="-0.05">
+        <RequiredItem items="mobilebattery" type="Contained" targetslot="0" />
+      </StatusEffect>
+    </LightComponent>
+
+    <!-- 维修系统 -->
+    <Repairable selectkey="Action" header="mechanicalrepairsheader" deteriorationspeed="0.2" mindeteriorationdelay="60" maxdeteriorationdelay="120" RepairThreshold="80" fixDurationHighSkill="5" fixDurationLowSkill="25" msg="ItemMsgRepairWrench" hudpriority="10">
+      <GuiFrame relativesize="0.2,0.16" anchor="Center" relativeoffset="0.0,0.27" style="ItemUI" />
+      <RequiredSkill identifier="mechanical" level="55" />
+      <RequiredItem items="wrench" type="equipped" />
+      <ParticleEmitter particle="damagebubbles" particlespersecond="2" scalemin="0.5" scalemax="1.5" mincondition="0.0" maxcondition="50.0" />
+      <StatusEffect type="OnFailure" target="Character" targetlimbs="LeftHand,RightHand">
+        <Sound file="Content/Items/MechanicalRepairFail.ogg" range="1000" />
+        <Affliction identifier="bleeding" strength="5" />
+        <Affliction identifier="lacerations" strength="5" />
+      </StatusEffect>
+    </Repairable>
+
+    <!-- GUI 控制 (灯光/喇叭) -->
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.1" anchor="BottomLeft" relativeoffset="0.05,0.1" style="ItemUI" />
+      <TickBox text="entityname.flashlight">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="entitydescription.bikehorn">
+        <StatusEffect type="OnUse" target="This">
+          <Sound file="Content/Items/Weapons/honk.ogg" range="1000" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+
     <AiTarget soundrange="3000" sonarlabel="entityname.scooter" />
     
     <ItemContainer autofill="False" hideitems="false" capacity="0" maxstacksize="1" slotsperrow="2" canbeselected="true" msg="ItemMsgInteractSelect" keepopenwhenequipped="true" movableframe="true">
@@ -126,19 +211,24 @@
       <!-- Slot 0: 电池槽 1 -->
       <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <SubContainer capacity="1" maxstacksize="1">
-         <Containable items="mobilebattery" />
+        <Containable items="mobilebattery" Hide="true">
+          <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+        </Containable>
       </SubContainer>
 
       <!-- Slot 1: 电池槽 2 -->
       <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
       <SubContainer capacity="1" maxstacksize="1">
-         <Containable items="mobilebattery" />
+        <Containable items="mobilebattery" Hide="true">
+          <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+        </Containable>
       </SubContainer>
+
 
       <!-- Slot 2: 轨道炮弹药架 (10发) -->
       <!-- 使用一个大的 SubContainer 容纳10发，5个一排 -->
       <SubContainer capacity="10" maxstacksize="1" slotsperrow="5">
-         <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
+         <Containable identifiers="railgunshell,nuclearshell,canistershell,railgunammo,physicoriumshell,railgunshell_shrapnel" />
       </SubContainer>
     </ItemContainer>
   </Item>

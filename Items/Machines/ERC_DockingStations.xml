@@ -14,7 +14,7 @@
     <Price baseprice="480" sold="true" />
     
     <!-- 占位贴图: 大尺寸 -->
-    <Sprite texture="%ModDir%/Images/Containers/cratelvl5.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_thruster_dock.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="150" height="90" density="30" />
 
     <!-- 同样支持右键+E放置，扳手拆卸 -->
@@ -47,7 +47,7 @@
     </ConnectionPanel>
 
     <!-- 容量: 1个，限制只能放 ERC 的推进器 -->
-    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ERC_heavycargo_thruster,ERC_railgun_thruster" />
       <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -63,7 +63,7 @@
     <Price baseprice="1000" sold="true" />
     
     <!-- 占位贴图: 竖长尺寸 -->
-    <Sprite texture="%ModDir%/Images/Containers/cratelvl4.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_exosuit_rack.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="150" height="90" density="30" />
 
     <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="true">
@@ -98,7 +98,7 @@
     </ConnectionPanel>
 
     <!-- 容量: 1个外骨骼 -->
-    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="exosuit" />
       <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -157,7 +157,7 @@
     </ConnectionPanel>
 
     <!-- 容量: 15套 -->
-    <ItemContainer capacity="15" slotsperrow="5" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="15" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <!-- 允许放入: 潜水服, 战斗潜水服, 深渊潜水服, PUCS -->
       <Containable identifiers="divingsuit,combatdivingsuit,abyssdivingsuit,pucs,slipsuit" />
       <GuiFrame relativesize="0.4,0.5" anchor="Center" style="ItemUI" />

@@ -7,9 +7,15 @@
 
   <!-- 1. ERC_ammostoragesmall (便携型炮塔弹药库) -->
   <Item identifier="ERC_ammostoragesmall" category="Machine" tags="container,ammoboxcontainer" scale="0.5">
-    <Price baseprice="150" sold="true" />
+    <Price baseprice="485" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.0" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="true" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.0" sold="true" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
     <!-- 占位贴图 -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Small.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Small.png" depth="0.6" sourcerect="0,0,250,90" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
     
     <!-- 操作: 右键+E放置，扳手拆卸 -->
@@ -18,20 +24,18 @@
     </Holdable>
 
     <Deconstruct time="12">
+      <Item identifier="titaniumaluminiumalloy" amount="2" />
       <Item identifier="steel" amount="1" />
-      <Item identifier="plastic" amount="1" />
-      <Item identifier="rubber" amount="1" />
     </Deconstruct>
 
     <Fabricate suitablefabricators="fabricator" requiredtime="12">
       <RequiredSkill identifier="mechanical" level="15" />
-      <RequiredItem identifier="steel" amount="1" />
-      <RequiredItem identifier="plastic" amount="1" />
-      <RequiredItem identifier="rubber" amount="1" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="4" />
+      <RequiredItem identifier="steel" amount="4" />
     </Fabricate>
     
     <!-- 容量: 4格 (2x2) -->
-    <ItemContainer capacity="4" slotsperrow="2" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="4" slotsperrow="2" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
       <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -39,29 +43,12 @@
 
   <!-- 2. ERC_ammostoragemedium (舰载型炮塔弹药库) -->
   <Item identifier="ERC_ammostoragemedium" category="Machine" tags="container,ammoboxcontainer" scale="0.5">
-    <Price baseprice="250" sold="true" />
+    <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Medium.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
     
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="70,0" handle1="0,0" attachable="true" aimable="false">
-       <RequiredItem identifier="wrench" type="Equipped" />
-    </Holdable>
-
-    <Deconstruct time="15">
-      <Item identifier="steel" amount="2" />
-      <Item identifier="plastic" amount="2" />
-      <Item identifier="rubber" amount="2" />
-    </Deconstruct>
-
-    <Fabricate suitablefabricators="fabricator" requiredtime="15">
-      <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="steel" amount="2" />
-      <RequiredItem identifier="plastic" amount="2" />
-      <RequiredItem identifier="rubber" amount="2" />
-    </Fabricate>
-    
     <!-- 容量: 12格 (3x4) -->
-    <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
       <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -69,30 +56,12 @@
 
   <!-- 3. ERC_ammostoragehuge (超巨型炮塔弹药库) -->
   <Item identifier="ERC_ammostoragehuge" category="Machine" tags="container,ammoboxcontainer" scale="0.6">
-    <Price baseprice="500" sold="true" />
+    <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Huge.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
     <Body width="140" height="90" density="25" />
     
-    <!-- 巨型设备拆卸时间更长 -->
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
-       <RequiredItem identifier="wrench" type="Equipped" />
-    </Holdable>
-
-    <Deconstruct time="18">
-      <Item identifier="steel" amount="4" />
-      <Item identifier="plastic" amount="4" />
-      <Item identifier="rubber" amount="4" />
-    </Deconstruct>
-
-    <Fabricate suitablefabricators="fabricator" requiredtime="18">
-      <RequiredSkill identifier="mechanical" level="30" />
-      <RequiredItem identifier="steel" amount="4" />
-      <RequiredItem identifier="plastic" amount="4" />
-      <RequiredItem identifier="rubber" amount="4" />
-    </Fabricate>
-    
     <!-- 容量: 24格 (4x6) -->
-    <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
       <GuiFrame relativesize="0.4,0.5" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -100,8 +69,14 @@
 
   <!-- 4. ERC_railgunstoragesmall (便携型轨道炮架) -->
   <Item identifier="ERC_railgunstoragesmall" category="Machine" tags="container,railgunammocontainer" scale="0.5">
-    <Price baseprice="200" sold="true" />
-    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Small.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Price baseprice="445" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.0" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="true" minavailable="1" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.0" sold="true" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
+    </Price>
+    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Small.png" depth="0.6" sourcerect="0,0,250,250" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
     
     <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="4.0" aimpos="70,0" handle1="0,0" attachable="true" aimable="false">
@@ -109,49 +84,32 @@
     </Holdable>
 
     <Deconstruct time="18">
-      <Item identifier="physicorium" amount="1" />
-      <Item identifier="rubber" amount="2" />
+      <Item identifier="titaniumaluminiumalloy" amount="2" />
+      <Item identifier="aluminium" amount="2" />
     </Deconstruct>
 
     <Fabricate suitablefabricators="fabricator" requiredtime="18">
       <RequiredSkill identifier="mechanical" level="20" />
-      <RequiredItem identifier="steel" amount="2" />
-      <RequiredItem identifier="physicorium" amount="1" />
-      <RequiredItem identifier="rubber" amount="2" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="4" />
+      <RequiredItem identifier="aluminium" amount="4" />
     </Fabricate>
-    
+
     <!-- 容量: 6发炮弹 (1x6) -->
     <ItemContainer capacity="6" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
-      <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
+      <Containable identifiers="railgunshell,nuclearshell,railgunammo" />
       <GuiFrame relativesize="0.3,0.15" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
 
   <!-- 5. ERC_railgunstoragehuge (交叠式轨道炮架) -->
   <Item identifier="ERC_railgunstoragehuge" category="Machine" tags="container,railgunammocontainer" scale="0.6">
-    <Price baseprice="700" sold="true" />
-    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Huge.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Price sold="false" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Huge.png" depth="0.6" sourcerect="0,0,250,250" origin="0.5,0.5" />
     <Body width="140" height="90" density="25" />
     
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="8.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="false">
-       <RequiredItem identifier="wrench" type="Equipped" />
-    </Holdable>
-
-    <Deconstruct time="22">
-      <Item identifier="physicorium" amount="1" />
-      <Item identifier="rubber" amount="4" />
-    </Deconstruct>
-
-    <Fabricate suitablefabricators="fabricator" requiredtime="22">
-      <RequiredSkill identifier="mechanical" level="40" />
-      <RequiredItem identifier="steel" amount="4" />
-      <RequiredItem identifier="physicorium" amount="2" />
-      <RequiredItem identifier="rubber" amount="4" />
-    </Fabricate>
-    
     <!-- 容量: 12发炮弹 (2x6) -->
-    <ItemContainer capacity="12" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
-      <Containable identifiers="railgunshell,nuclearshell,canistershell,physicoriumshell,railgunshell_shrapnel" />
+    <ItemContainer capacity="12" slotsperrow="6"  canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+      <Containable identifiers="railgunshell,nuclearshell,railgunammo" />
       <GuiFrame relativesize="0.3,0.25" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
