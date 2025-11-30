@@ -42,26 +42,28 @@
   </Item>
 
   <!-- 2. ERC_ammostoragemedium (舰载型炮塔弹药库) -->
-  <Item identifier="ERC_ammostoragemedium" category="Machine" tags="container,ammoboxcontainer" scale="0.5">
+  <Item identifier="ERC_ammostoragemedium" category="Machine" linkable="true" fireproof="true" waterproof="true" canflipx="false" tags="container,ammoboxcontainer" scale="0.5">
     <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Medium.png" depth="0.6" sourcerect="0,0,350,200" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
-    
+    <Holdable attachable="true" attachedbydefault="true" aimable="false" />
+
     <!-- 容量: 12格 (3x4) -->
-    <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" attachable="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
       <GuiFrame relativesize="0.3,0.3" anchor="Center" style="ItemUI" />
     </ItemContainer>
   </Item>
 
   <!-- 3. ERC_ammostoragehuge (超巨型炮塔弹药库) -->
-  <Item identifier="ERC_ammostoragehuge" category="Machine" tags="container,ammoboxcontainer" scale="0.6">
+  <Item identifier="ERC_ammostoragehuge" category="Machine" tags="container,ammoboxcontainer"  linkable="true" fireproof="true" waterproof="true" canflipx="false" scale="0.6">
     <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Huge.png" depth="0.6" sourcerect="0,0,400,200" origin="0.5,0.5" />
     <Body width="140" height="90" density="25" />
-    
+    <Holdable attachable="true" attachedbydefault="true" aimable="false" />
+
     <!-- 容量: 24格 (4x6) -->
-    <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" attachable="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
       <GuiFrame relativesize="0.4,0.5" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -104,13 +106,14 @@
   </Item>
 
   <!-- 5. ERC_railgunstoragehuge (交叠式轨道炮架) -->
-  <Item identifier="ERC_railgunstoragehuge" category="Machine" tags="container,railgunammocontainer" scale="0.6">
+  <Item identifier="ERC_railgunstoragehuge" category="Machine" tags="container,railgunammocontainer"  linkable="true" fireproof="true" waterproof="true" canflipx="false" scale="0.6">
     <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Huge.png" depth="0.6" sourcerect="0,0,250,250" origin="0.5,0.5" />
     <Body width="140" height="90" density="25" />
-    
+    <Holdable attachable="true" attachedbydefault="true" aimable="false" />
+
     <!-- 容量: 12发炮弹 (2x6) -->
-    <ItemContainer autofill="False" hideitems="false" drawinventory="true" capacity="12" maxstacksize="1" slotsperrow="6" itempos="0,-105" iteminterval="0,18.5" itemrotation="0" containedspritedepth="0.78" canbeselected="true" msg="ItemMsgInteractSelect">
+    <ItemContainer autofill="False" hideitems="false" drawinventory="true" attachable="true" capacity="12" maxstacksize="1" slotsperrow="6" itempos="0,-105" iteminterval="0,18.5" itemrotation="0" containedspritedepth="0.78" canbeselected="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
       <Containable identifiers="railgunshell,nuclearshell,railgunammo" />
       <StatusEffect type="OnContained" target="This" setvalue="true" drawinventory="false" />
