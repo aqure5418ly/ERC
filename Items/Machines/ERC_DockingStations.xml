@@ -14,7 +14,7 @@
     <Price baseprice="480" sold="true" />
     
     <!-- 占位贴图: 大尺寸 -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_thruster_dock.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_thruster_dock.png" depth="0.8" sourcerect="0,0,450,155" origin="0.5,0.5" />
     <Body width="150" height="90" density="30" />
 
     <!-- 同样支持右键+E放置，扳手拆卸 -->
@@ -63,8 +63,8 @@
     <Price baseprice="1000" sold="true" />
     
     <!-- 占位贴图: 竖长尺寸 -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_exosuit_rack.png" depth="0.8" sourcerect="0,0,150,90" origin="0.5,0.5" />
-    <Body width="150" height="90" density="30" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_exosuit_rack.png" depth="0.74" sourcerect="12,20,255,380" origin="0.5,0.5" />
+    <DecorativeSprite texture="%ModDir%/Images/Containers/ERC_exosuit_rack.png" depth="0.72" sourcerect="260,20,255,380" origin="0.5,0.5" />
 
     <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="true">
        <RequiredItem identifier="wrench" type="Equipped" />
@@ -98,9 +98,10 @@
     </ConnectionPanel>
 
     <!-- 容量: 1个外骨骼 -->
-    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
-      <Containable identifiers="exosuit" />
-      <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
+    <ItemContainer hideitems="false" drawinventory="true" capacity="1" slotsperrow="1" itempos="124,-168" iteminterval="0,0" canbeselected="true" containedspritedepth="0.73" msg="ItemMsgInteractSelect">
+    <GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI" />
+    <StatusEffect type="OnFire" target="This" tags="onfire" duration="1" stackable="false" />
+    <Containable items="exosuit"></Containable>
     </ItemContainer>
   </Item>
 
@@ -117,7 +118,7 @@
       修正贴图: 使用 ERC_divingsuit_locker_large.png
       修正尺寸: 269x333 (原版钢柜大小)
     -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_divingsuit_locker_large.png" depth="0.8" sourcerect="0,0,269,333" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_divingsuit_locker_large.png" depth="0.8" sourcerect="0,0,300,250" origin="0.5,0.5" />
     
     <!-- 调整碰撞体: 匹配新贴图的宽高 (稍微留一点边距) -->
     <Body width="260" height="320" density="40" />

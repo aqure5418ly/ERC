@@ -2,7 +2,7 @@
 <Items>
   <!-- =================================================================
        ERC PLACEABLE CONTAINERS (放置类容器)
-       包含: 遗物袋柜, 磁力扩容箱
+       包含: 遗物袋柜, 磁力扩容箱,ERC 自动清理桶
        ================================================================= -->
 
   <!-- 1. ERC_duffelbagcontainer (遗物袋柜) -->
@@ -10,7 +10,7 @@
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab" amount="1" spawnprobability="0.1"/>
     <Price sold="false" />
 
-    <Sprite texture="%ModDir%/Images/Containers/ERC_DuffelBagContainer.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_DuffelBagContainer.png" depth="0.6" sourcerect="0,0,275,376" origin="0.5,0.5" />
     <Body width="145" height="85" density="25" />
     
     <!-- 操作逻辑: 右键瞄准+左键放置 (Action)，扳手拆卸 -->
@@ -76,11 +76,11 @@
   </Item>
 
   <!-- 3. ERC_trashcan (ERC 自动清理桶) -->
-  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" scale="0.5" pickdistance="150">
+  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" scale="0.35" pickdistance="150">
     <Price baseprice="220" sold="true" />
     
     <!-- 直接使用原版前哨站贴图 (SourceRect来自您提供的代码) -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_TrashCan.png" sourcerect="0,0,150,90" depth="0.86" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_TrashCan.png" sourcerect="0,0,400,500" depth="0.86" origin="0.5,0.5" />
     
     <Body width="125" height="205" density="20" />
     

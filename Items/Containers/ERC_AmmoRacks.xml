@@ -15,7 +15,7 @@
       <Price storeidentifier="merchantmine" multiplier="1.1" sold="false" />
     </Price>
     <!-- 占位贴图 -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Small.png" depth="0.6" sourcerect="0,0,250,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Small.png" depth="0.6" sourcerect="0,0,250,250" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
     
     <!-- 操作: 右键+E放置，扳手拆卸 -->
@@ -44,7 +44,7 @@
   <!-- 2. ERC_ammostoragemedium (舰载型炮塔弹药库) -->
   <Item identifier="ERC_ammostoragemedium" category="Machine" tags="container,ammoboxcontainer" scale="0.5">
     <Price sold="false" />
-    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Medium.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Medium.png" depth="0.6" sourcerect="0,0,350,200" origin="0.5,0.5" />
     <Body width="120" height="80" density="25" />
     
     <!-- 容量: 12格 (3x4) -->
@@ -57,7 +57,7 @@
   <!-- 3. ERC_ammostoragehuge (超巨型炮塔弹药库) -->
   <Item identifier="ERC_ammostoragehuge" category="Machine" tags="container,ammoboxcontainer" scale="0.6">
     <Price sold="false" />
-    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Huge.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Huge.png" depth="0.6" sourcerect="0,0,400,200" origin="0.5,0.5" />
     <Body width="140" height="90" density="25" />
     
     <!-- 容量: 24格 (4x6) -->
@@ -95,9 +95,11 @@
     </Fabricate>
 
     <!-- 容量: 6发炮弹 (1x6) -->
-    <ItemContainer capacity="6" slotsperrow="6" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer autofill="False" hideitems="false" drawinventory="true" capacity="6" maxstacksize="1" slotsperrow="6" itempos="40,-102" iteminterval="31.75,0" itemrotation="90" containedspritedepth="0.8" canbeselected="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.2,0.22" anchor="Center" style="ItemUI" />
       <Containable identifiers="railgunshell,nuclearshell,railgunammo" />
-      <GuiFrame relativesize="0.3,0.15" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnContained" target="This" setvalue="true" drawinventory="false" />
+      <StatusEffect type="OnNotContained" target="This" setvalue="true" drawinventory="true" />
     </ItemContainer>
   </Item>
 
@@ -108,9 +110,11 @@
     <Body width="140" height="90" density="25" />
     
     <!-- 容量: 12发炮弹 (2x6) -->
-    <ItemContainer capacity="12" slotsperrow="6"  canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
+    <ItemContainer autofill="False" hideitems="false" drawinventory="true" capacity="12" maxstacksize="1" slotsperrow="6" itempos="0,-105" iteminterval="0,18.5" itemrotation="0" containedspritedepth="0.78" canbeselected="true" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
       <Containable identifiers="railgunshell,nuclearshell,railgunammo" />
-      <GuiFrame relativesize="0.3,0.25" anchor="Center" style="ItemUI" />
+      <StatusEffect type="OnContained" target="This" setvalue="true" drawinventory="false" />
+      <StatusEffect type="OnNotContained" target="This" setvalue="true" drawinventory="true" />
     </ItemContainer>
   </Item>
 
