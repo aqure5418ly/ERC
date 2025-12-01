@@ -14,7 +14,7 @@
       <Price storeidentifier="merchantmilitary" multiplier="0.8" minavailable="4" />
       <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteAmmoUnit.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteAmmoUnit.png" depth="0.6" sourcerect="0,0,750,806" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
 
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
@@ -37,11 +37,8 @@
     <GuiFrame relativesize="0.15,0.25" anchor="Center" style="ItemUI" />
     
     <!-- MaxStackSize="64": 强制设定该容器内物品最大堆叠数为64 -->
-    <SubContainer capacity="8" slotsperrow="3" maxstacksize="64" >
-      <Containable identifiers="ammobox,coilgunammo,railgunammo,depthchargeammo,explosive,grenade,harpoonammo,revolverammo,pistolammoitem,smgammo,demolitionsexpert,mobilebattery,shotgunammo,stungunammo,reactorfuel,assaultrifleammo,nitroglycerin,ehaammo,rifleammo,magazine" 
-                   excludeditems="mobilecontainer,toolbelt,toolbox,ERC_elite_storageunit,ERC_elite_medicalunit" />
-    </SubContainer>
-    <SubContainer capacity="1" slotsperrow="3" maxstacksize="64" >
+    <SubContainer capacity="9" slotsperrow="3" maxstacksize="64" >
+      <SlotIcon texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
       <Containable identifiers="ammobox,coilgunammo,railgunammo,depthchargeammo,explosive,grenade,harpoonammo,revolverammo,pistolammoitem,smgammo,demolitionsexpert,mobilebattery,shotgunammo,stungunammo,reactorfuel,assaultrifleammo,nitroglycerin,ehaammo,rifleammo,magazine" 
                    excludeditems="mobilecontainer,toolbelt,toolbox,ERC_elite_storageunit,ERC_elite_medicalunit" />
     </SubContainer>
@@ -58,7 +55,7 @@
       <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="1" />
       <Price storeidentifier="merchantmine" multiplier="0.8" minavailable="4" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteStorageUnit.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteStorageUnit.png" depth="0.6" sourcerect="0,0,689,606" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
 
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
@@ -93,7 +90,7 @@
       <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
       <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteMedicalUnit.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteMedicalUnit.png" depth="0.6" sourcerect="0,0,774,415" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
 
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="2.0" aimpos="60,0" holdpos="0,-20" attachable="true" aimable="false">

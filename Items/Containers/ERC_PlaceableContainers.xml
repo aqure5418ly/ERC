@@ -44,7 +44,7 @@
       <Price storeidentifier="merchantmine" multiplier="0.9" minavailable="4" />
     </Price>
     
-    <Sprite texture="%ModDir%/Images/Containers/ERC_ExpansionCrate.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_ExpansionCrate.png" depth="0.6" sourcerect="0,0,430,280" origin="0.5,0.5" />
     <Body width="120" height="80" density="20" />
     
     <!-- 操作逻辑: 右键瞄准+E键放置 (Select)，空手E键拆卸 -->
@@ -130,7 +130,8 @@
       <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="6" />
       <Price storeidentifier="merchantmine" multiplier="1.0" minavailable="2" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_ArmamentCrate.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_ArmamentCrate.png" depth="0.6" sourcerect="29,243,726,452" origin="0.5,0.5" />
+    <ContainedSprite texture="%ModDir%/Images/Containers/ERC_ArmamentCrate.png" sourcerect="29,8,383,215" origin="0.5,0.5" depth="0.6" />
     <Body width="145" height="85" density="30" />
     <Holdable slots="RightHand+LeftHand" holdpos="0,-40" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
 
@@ -151,7 +152,7 @@
   </Item>
 
   <!-- 5. ERC_storagecrate (ERC储运集装箱) -->
-  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate" scale="0.5" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
+  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate" scale="0.4" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
     <Price baseprice="175" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="4" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="6" />
@@ -161,7 +162,8 @@
     </Price>
     
     <!-- 独立贴图: ERC_StorageCrate.png (源自 cratelvl4) -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_StorageCrate.png" depth="0.6" sourcerect="7,10,160,95" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_StorageCrate.png" depth="0.6" sourcerect="20,220,683,416" origin="0.5,0.5" />
+    <ContainedSprite texture="%ModDir%/Images/Containers/ERC_StorageCrate.png" sourcerect="20,15,340,205" origin="0.5,0.5" depth="0.6" />
     <Body width="145" height="85" density="30" />
     
     <Holdable slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="60,0" handle1="0,0" aimable="false">

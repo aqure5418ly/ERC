@@ -1,0 +1,21 @@
+精兵收纳单元 ERC_EliteStorageUnit.png
+(0,0,689,606)
+scale=0.2
+精兵弹药单元 ERC_EliteAmmoUnit.png
+(0,0,750,806)
+scale=0.2
+战斗医疗单元 ERC_EliteMedicalUnit.png
+(0,0,774,415)
+scale=0.2
+ERC集装箱 ERC_StorageCrate.png
+放入箱子架(20,15,340,205)
+手持/地面显示(20,220,683,416)
+scale＜0.4
+
+ERC框架箱 ERC_ArmamentCrate.png
+放入箱子架(29,8,383,215)
+手持/地面显示(29,243,726,452)
+scale=0.5
+
+ERC磁吸箱 ERC_ExpansionCrate.png
+全部情况（0,0,430,280）
