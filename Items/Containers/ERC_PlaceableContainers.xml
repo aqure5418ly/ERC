@@ -76,7 +76,7 @@
   </Item>
 
   <!-- 3. ERC_trashcan (ERC 自动清理桶) -->
-  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" scale="0.35" pickdistance="150">
+  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" scale="0.1" pickdistance="150">
     <Price baseprice="220" sold="true" />
     
     <!-- 直接使用原版前哨站贴图 (SourceRect来自您提供的代码) -->
@@ -161,7 +161,7 @@
     </Price>
     
     <!-- 独立贴图: ERC_StorageCrate.png (源自 cratelvl4) -->
-    <Sprite texture="%ModDir%/Images/Containers/ERC_StorageCrate.png" depth="0.6" sourcerect="0,0,150,90" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_StorageCrate.png" depth="0.6" sourcerect="7,10,160,95" origin="0.5,0.5" />
     <Body width="145" height="85" density="30" />
     
     <Holdable slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="60,0" handle1="0,0" aimable="false">

@@ -10,7 +10,7 @@
     功能: 储存推进器 + 充电
     Tag: batterycellrecharger (充电用)
   -->
-  <Item identifier="ERC_thruster_dock" category="Machine" tags="container,charger,batterycellrecharger" scale="0.6">
+  <Item identifier="ERC_thruster_dock" category="Machine" tags="container,charger,batterycellrecharger" scale="0.8">
     <Price baseprice="480" sold="true" />
     
     <!-- 占位贴图: 大尺寸 -->
@@ -47,7 +47,7 @@
     </ConnectionPanel>
 
     <!-- 容量: 1个，限制只能放 ERC 的推进器 -->
-    <ItemContainer capacity="1" slotsperrow="1" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+    <ItemContainer capacity="1" slotsperrow="1" drawinventory="true" itempos="240,-10" containedspritedepth="0.88" canbeselected="true" hideitems="false" msg="ItemMsgInteractSelect">
       <Containable identifiers="ERC_heavycargo_thruster,ERC_railgun_thruster" />
       <GuiFrame relativesize="0.2,0.25" anchor="Center" style="ItemUI" />
     </ItemContainer>
@@ -65,10 +65,6 @@
     <!-- 占位贴图: 竖长尺寸 -->
     <Sprite texture="%ModDir%/Images/Containers/ERC_exosuit_rack.png" depth="0.74" sourcerect="12,20,255,380" origin="0.5,0.5" />
     <DecorativeSprite texture="%ModDir%/Images/Containers/ERC_exosuit_rack.png" depth="0.72" sourcerect="260,20,255,380" origin="0.5,0.5" />
-
-    <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="5.0" aimpos="80,0" handle1="0,0" attachable="true" aimable="true">
-       <RequiredItem identifier="wrench" type="Equipped" />
-    </Holdable>
 
     <Deconstruct time="30">
       <Item identifier="titaniumaluminiumalloy" amount="1" />

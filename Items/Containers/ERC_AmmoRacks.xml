@@ -45,11 +45,7 @@
   <Item identifier="ERC_ammostoragemedium" category="Machine" linkable="true" fireproof="true" waterproof="true" canflipx="false" tags="container,ammoboxcontainer" scale="0.5">
     <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Medium.png" depth="0.6" sourcerect="0,0,350,200" origin="0.5,0.5" />
-    <Body width="120" height="80" density="25" />
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="65,-10" handle1="-90,0" attachable="true" aimable="false">
-      <RequiredItem identifier="wrench" type="Equipped" />
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.55" setvalue="true" />
-    </Holdable>
+
     <!-- 容量: 12格 (3x4) -->
     <ItemContainer capacity="12" slotsperrow="4" canbeselected="true" attachable="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
@@ -61,11 +57,7 @@
   <Item identifier="ERC_ammostoragehuge" category="Machine" tags="container,ammoboxcontainer"  linkable="true" fireproof="true" waterproof="true" canflipx="false" scale="0.6">
     <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_AmmoStorage_Huge.png" depth="0.6" sourcerect="0,0,400,200" origin="0.5,0.5" />
-    <Body width="140" height="90" density="25" />
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="65,-10" handle1="-90,0" attachable="true" aimable="false">
-      <RequiredItem identifier="wrench" type="Equipped" />
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.55" setvalue="true" />
-    </Holdable>
+
     <!-- 容量: 24格 (4x6) -->
     <ItemContainer capacity="24" slotsperrow="6" canbeselected="true" attachable="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable identifiers="ammobox,coilgunammo,chaingunammo,pulselaserammo,slimebacteriaammo" />
@@ -113,14 +105,10 @@
   <Item identifier="ERC_railgunstoragehuge" category="Machine" tags="container,railgunammocontainer"  linkable="true" fireproof="true" waterproof="true" canflipx="false" scale="0.6">
     <Price sold="false" />
     <Sprite texture="%ModDir%/Images/Containers/ERC_RailgunStorage_Huge.png" depth="0.6" sourcerect="0,0,250,250" origin="0.5,0.5" />
-    <Body width="140" height="90" density="25" />
-    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" aimpos="65,-10" handle1="-90,0" attachable="true" aimable="false">
-      <RequiredItem identifier="wrench" type="Equipped" />
-      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.55" setvalue="true" />
-    </Holdable>
+
 
     <!-- 容量: 12发炮弹 (2x6) -->
-    <ItemContainer autofill="False" hideitems="false" drawinventory="true" attachable="true" capacity="12" maxstacksize="1" slotsperrow="6" itempos="0,-105" iteminterval="0,18.5" itemrotation="0" containedspritedepth="0.78" canbeselected="true" msg="ItemMsgInteractSelect">
+    <ItemContainer autofill="False" hideitems="false" drawinventory="true" capacity="12" maxstacksize="1" slotsperrow="6" itempos="124,-225" iteminterval="0,18.5" itemrotation="0" containedspritedepth="0.78" canbeselected="true" msg="ItemMsgInteractSelect">
       <GuiFrame relativesize="0.2,0.2" anchor="Center" style="ItemUI" />
       <Containable identifiers="railgunshell,nuclearshell,railgunammo" />
       <StatusEffect type="OnContained" target="This" setvalue="true" drawinventory="false" />

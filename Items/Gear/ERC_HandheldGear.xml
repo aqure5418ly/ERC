@@ -33,11 +33,15 @@
     </Fabricate>
     <!-- 特性: 适配EA弹药，且使用 SubContainer 实现堆叠数+2 -->
   <!-- 容量修正: 主容器 capacity=0, 子容器=9 -->
-  <ItemContainer capacity="0" maxstacksize="64" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+  <ItemContainer capacity="0" maxstacksize="1" ExtraStackSize="8" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
     <GuiFrame relativesize="0.15,0.25" anchor="Center" style="ItemUI" />
     
     <!-- MaxStackSize="64": 强制设定该容器内物品最大堆叠数为64 -->
-    <SubContainer capacity="9" slotsperrow="3" maxstacksize="64" ExtraStacksize="2">
+    <SubContainer capacity="8" slotsperrow="3" maxstacksize="64" >
+      <Containable identifiers="ammobox,coilgunammo,railgunammo,depthchargeammo,explosive,grenade,harpoonammo,revolverammo,pistolammoitem,smgammo,demolitionsexpert,mobilebattery,shotgunammo,stungunammo,reactorfuel,assaultrifleammo,nitroglycerin,ehaammo,rifleammo,magazine" 
+                   excludeditems="mobilecontainer,toolbelt,toolbox,ERC_elite_storageunit,ERC_elite_medicalunit" />
+    </SubContainer>
+    <SubContainer capacity="1" slotsperrow="3" maxstacksize="64" >
       <Containable identifiers="ammobox,coilgunammo,railgunammo,depthchargeammo,explosive,grenade,harpoonammo,revolverammo,pistolammoitem,smgammo,demolitionsexpert,mobilebattery,shotgunammo,stungunammo,reactorfuel,assaultrifleammo,nitroglycerin,ehaammo,rifleammo,magazine" 
                    excludeditems="mobilecontainer,toolbelt,toolbox,ERC_elite_storageunit,ERC_elite_medicalunit" />
     </SubContainer>
