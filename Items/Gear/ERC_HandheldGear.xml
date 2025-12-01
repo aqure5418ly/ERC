@@ -6,7 +6,7 @@
        ================================================================= -->
 
   <!-- 1. ERC_elite_ammounit (精兵弹药单元) -->
-  <Item identifier="ERC_elite_ammounit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.5" fireproof="true" waterproof="true">
+  <Item identifier="ERC_elite_ammounit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.2" fireproof="true" waterproof="true">
     <Price baseprice="200" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -47,7 +47,7 @@
 
 
   <!-- 2. ERC_elite_storageunit (精兵收纳单元) -->
-  <Item identifier="ERC_elite_storageunit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.5">
+  <Item identifier="ERC_elite_storageunit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.2">
     <Price baseprice="200" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -82,7 +82,7 @@
   </Item>
 
   <!-- 3. ERC_elite_medicalunit (战地医疗单元) -->
-  <Item identifier="ERC_elite_medicalunit" category="Equipment" tags="smallitem,mobilecontainer,medicalcontainer" scale="0.5" fireproof="true" waterproof="true">
+  <Item identifier="ERC_elite_medicalunit" category="Equipment" tags="smallitem,mobilecontainer,medicalcontainer" scale="0.2" fireproof="true" waterproof="true">
     <Price baseprice="275" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
