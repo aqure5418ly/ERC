@@ -64,5 +64,14 @@
   <entityname.ERC_storagecrate>ERC储运集装箱</entityname.ERC_storagecrate>
   <entitydescription.ERC_storagecrate>“捷运必达，安心所托！”面对愈加复杂的快递运输业务，欧罗巴捷运快递公司（ERC）发明了新式储藏-运输集装一体箱。整箱箱体防水防火防爆防弹，兼具便携性与挂载属性，让货物不惧外界侵扰！问世时曾受到船队与站点的疯狂抢购。同时，欧捷递面向船队提供的箱体经过重新设计与改色，以此与公司的常规快递货物进行区分。（右键+E放置，空手E拆卸。可放36组物品）</entitydescription.ERC_storagecrate>
 
+  <entityname.ERC_toolbox>ERC多功能工具箱</entityname.ERC_toolbox>
+  <entitydescription.ERC_toolbox>集成了扳手与螺丝刀功能的重型工具箱，不仅是维修利器，也是近身防卫的好帮手。（同时具备扳手和螺丝刀功能）</entitydescription.ERC_toolbox>
+
+  <entityname.ERC_lavacat>熔岩猫</entityname.ERC_lavacat>
+  <entitydescription.ERC_lavacat>如果你是实用主义，那么熔岩猫与工具箱的效用并无不同。但如果你只是想要一个随时可rua的烫手猫猫，请大声呐喊：哇，我也有猫猫了！(自带梯子和焊接油箱槽位)</entitydescription.ERC_lavacat>
+
+  <entityname.ERC_icecat>冰猫</entityname.ERC_icecat>
+  <entitydescription.ERC_icecat>由工具箱升级而来，有容纳手术台与一个小型器官冷藏箱的空间，不要问怎么做到的，只需要知道猫猫拯救了神经创伤医生可怜兮兮的储物空间，快说：谢谢猫猫！</entitydescription.ERC_icecat>
+
 
 </infotexts>

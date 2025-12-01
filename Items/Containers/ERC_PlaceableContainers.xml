@@ -35,7 +35,7 @@
 
 
   <!-- 2. ERC_expansioncrate (ERC磁力扩容箱) -->
-  <Item identifier="ERC_expansioncrate" category="Equipment" tags="container,crate" scale="0.5">
+  <Item identifier="ERC_expansioncrate" category="Equipment" tags="container,crate" scale="0.2">
     <Price baseprice="175" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="6" />

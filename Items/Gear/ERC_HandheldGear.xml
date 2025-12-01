@@ -105,9 +105,161 @@
     <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
     <!-- 互斥: 禁止套娃 -->
     <Containable tags="medical,chem,poison,geneticmaterial,syringe,bandage,bloodpack,alienblood,antidote,stimulant" excludeditems="mobilecontainer,toolbelt,toolbox,ERC_elite_ammounit,ERC_elite_storageunit" />
+    <SlotIcon texture="%ModDir%/Images/Icons/medical.png" sourcerect="0,0,150,120" origin="0.5,0.5" />
   </ItemContainer>
   </Item>
 
+<Item identifier="ERC_toolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.2" fireproof="true" impactsoundtag="impact_metal_heavy" addedrepairspeedmultiplier="1">
+  
+  <Price baseprice="1400" sold="false" />
+  
+  <!-- 分解配方: 钢筋 -->
+  <Deconstruct time="10">
+    <Item identifier="steel" />
+  </Deconstruct>
+  
+  <!-- 制作配方: 极高要求的合成 -->
+  <Fabricate suitablefabricators="fabricator" requiredtime="20">
+    <RequiredSkill identifier="mechanical" level="80" />
+    <RequiredSkill identifier="electrical" level="80" />
+    <Item identifier="heavywrench" amount="1" />
+    <Item identifier="wrench" amount="1" />
+    <Item identifier="screwdriver" amount="1" />
+    <Item identifier="skillbookhandyseaman" mincondition="1" />
+    <Item tag="wire" amount="4" />
+    <Item identifier="iron" amount="2" />
+  </Fabricate>
+
+  <!-- 占位贴图: 使用 ERC_OrganToolbox.png (中型盒子) -->
+  <Sprite texture="%ModDir%/Images/Containers/ERC_Toolbox.png" sourcerect="0,0,430,280" origin="0.5,0.5" depth="0.6" />
+  
+  <Body width="90" height="60" density="20" />
+  
+  <!-- 武器属性: 钝器伤害8，高眩晕 -->
+  <MeleeWeapon slots="Any,LeftHand+RightHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1.8" range="70" combatpriority="6" msg="ItemMsgPickUpSelect">
+    <Attack structuredamage="0" itemdamage="1" targetimpulse="4">
+      <Affliction identifier="blunttrauma" strength="8" />
+      <Affliction identifier="stun" strength="1" />
+      <StatusEffect type="OnUse" target="UseTarget">
+        <Conditional entitytype="eq Character" />
+        <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+        <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+      </StatusEffect>
+    </Attack>
+  </MeleeWeapon>
+  
+  <!-- 容量: 6格 -->
+  <ItemContainer capacity="6" keepopenwhenequipped="true" canbeselected="true" hideitems="true" movableframe="true">
+    <Containable items="smallitem" />
+  </ItemContainer>
+  
+  <Quality>
+    <QualityStat stattype="RepairSpeed" value="0.1" />
+  </Quality>
+  
+  <aitarget sightrange="1000" soundrange="1000" fadeouttime="2" />
+</Item>
+
+<!-- 1. ERC_lavacat (熔岩猫) -->
+<Item identifier="ERC_lavacat" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.25" fireproof="true" impactsoundtag="impact_soft">
+  <Price baseprice="1500" sold="false" />
+  
+  <Deconstruct time="10">
+    <Item identifier="wrench" amount="1" />
+    <Item identifier="screwdriver" amount="1" />
+  </Deconstruct>
+  
+  <Fabricate suitablefabricators="fabricator" requiredtime="20">
+    <RequiredItem identifier="ERC_toolbox" amount="1" />
+    <RequiredItem identifier="fuelrod" amount="1" />
+  </Fabricate>
+
+  <!-- 猫猫贴图: 400x400 -->
+  <Sprite texture="%ModDir%/Images/Containers/ERC_LavaCat.png" sourcerect="0,0,400,400" origin="0.5,0.5" depth="0.6" />
+  <Body width="80" height="50" density="20" />
+  
+  <!-- 武器属性: 钝器伤害8 (同工具箱) -->
+  <MeleeWeapon slots="Any,LeftHand+RightHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1.8" range="70" combatpriority="6" msg="ItemMsgPickUpSelect">
+    <Attack structuredamage="0" itemdamage="1" targetimpulse="4">
+      <Affliction identifier="blunttrauma" strength="8" />
+      <Affliction identifier="stun" strength="1" />
+      <StatusEffect type="OnUse" target="UseTarget">
+        <Conditional entitytype="eq Character" />
+        <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+      </StatusEffect>
+    </Attack>
+  </MeleeWeapon>
+  
+  <!-- 容量: 6格 -->
+  <ItemContainer capacity="0" slotsperrow="3" canbeselected="true" hideitems="true" keepopenwhenequipped="true" movableframe="true" msg="ItemMsgInteractSelect">
+    <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
+    
+    <!-- Slot 1: 梯子 (专用Icon) -->
+    <SubContainer capacity="1" maxstacksize="1">
+       <SlotIcon texture="%ModDir%/Images/Icons/climbinggear.png" sourcerect="0,0,190,190" origin="0.5,0.5" />
+       <Containable identifiers="portableladder,ladder,climbinggear" />
+    </SubContainer>
+
+    <!-- Slot 2: 焊接油箱 (堆叠+3 -> 总共4) -->
+    <SubContainer capacity="1" maxstacksize="4">
+       <SlotIcon texture="Content\UI\StatusMonitorUI.png" sourcerect="61,450,130,512" origin="0.5,0.5" />
+       <Containable identifiers="weldingfueltank,incendiumfueltank" />
+    </SubContainer>
+
+    <!-- Slot 3-6: 通用 (4格) -->
+    <SubContainer capacity="4">
+       <Containable items="smallitem" />
+    </SubContainer>
+  </ItemContainer>
+</Item>
+
+<!-- 2. ERC_icecat (冰猫) -->
+<Item identifier="ERC_icecat" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.25" fireproof="true" impactsoundtag="impact_soft">
+  <Price baseprice="1500" sold="false" />
+  
+  <Deconstruct time="10">
+    <Item identifier="wrench" amount="1" />
+    <Item identifier="screwdriver" amount="1" />
+  </Deconstruct>
+  
+  <Fabricate suitablefabricators="fabricator" requiredtime="20">
+    <RequiredItem identifier="ERC_toolbox" amount="1" />
+    <RequiredItem identifier="potassium" amount="1" />
+  </Fabricate>
+
+  <!-- 猫猫贴图: 400x400 -->
+  <Sprite texture="%ModDir%/Images/Containers/ERC_IceCat.png" sourcerect="0,0,400,400" origin="0.5,0.5" depth="0.6" />
+  <Body width="80" height="50" density="20" />
+  
+  <!-- 武器属性: 无伤害 -->
+  <MeleeWeapon slots="Any,LeftHand+RightHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1.8" range="70" combatpriority="6" msg="ItemMsgPickUpSelect">
+    <Attack structuredamage="0" itemdamage="0" targetimpulse="2">
+      <!-- 无 Affliction -->
+    </Attack>
+  </MeleeWeapon>
+  
+  <!-- 容量: 6格 -->
+  <ItemContainer capacity="0" slotsperrow="3" keepopenwhenequipped="true" canbeselected="true" hideitems="true" movableframe="true" msg="ItemMsgInteractSelect">
+    <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
+    
+    <!-- Slot 1: 手术台 (专用Icon) -->
+    <SubContainer capacity="1" maxstacksize="1">
+       <SlotIcon texture="%ModDir%/Images/Icons/surgicaltable.png" sourcerect="0,0,200,150" origin="0.5,0.5" />
+       <Containable identifiers="surgicaltable,operatingtable,mobileop_table,adv_surgical_table" />
+    </SubContainer>
+
+    <!-- Slot 2: 器官箱 (专用Icon) -->
+    <SubContainer capacity="1" maxstacksize="1">
+       <SlotIcon texture="%ModDir%/Images/Icons/ERC_organtoolbox.png" sourcerect="0,0,350,350" origin="0.5,0.5" />
+       <Containable identifiers="organtoolbox,ERC_organtoolbox" />
+    </SubContainer>
+
+    <!-- Slot 3-6: 通用 (4格) -->
+    <SubContainer capacity="4">
+       <Containable items="smallitem" />
+    </SubContainer>
+  </ItemContainer>
+</Item>
 
   <!-- 4. organtoolbox (小型器官冷藏箱 - 覆写) -->
   <!-- 使用 Override 标签覆盖原版或其他Mod的同名物品 -->
