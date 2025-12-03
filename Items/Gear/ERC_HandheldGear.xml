@@ -6,7 +6,7 @@
        ================================================================= -->
 
   <!-- 1. ERC_elite_ammounit (精兵弹药单元) -->
-  <Item identifier="ERC_elite_ammounit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.2" fireproof="true" waterproof="true">
+  <Item identifier="ERC_elite_ammounit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.3" fireproof="true" waterproof="true">
     <Price baseprice="200" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -14,7 +14,7 @@
       <Price storeidentifier="merchantmilitary" multiplier="0.8" minavailable="4" />
       <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteAmmoUnit.png" depth="0.6" sourcerect="0,0,750,806" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteAmmoUnit.png" depth="0.6" sourcerect="0,0,150,161" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
 
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
@@ -47,7 +47,7 @@
 
 
   <!-- 2. ERC_elite_storageunit (精兵收纳单元) -->
-  <Item identifier="ERC_elite_storageunit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.2">
+  <Item identifier="ERC_elite_storageunit" category="Equipment" tags="smallitem,mobilecontainer" scale="0.3">
     <Price baseprice="200" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -55,7 +55,7 @@
       <Price storeidentifier="merchantmilitary" multiplier="1.1" minavailable="1" />
       <Price storeidentifier="merchantmine" multiplier="0.8" minavailable="4" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteStorageUnit.png" depth="0.6" sourcerect="0,0,689,606" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteStorageUnit.png" depth="0.6" sourcerect="0,0,150,132" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
 
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,-20" msg="ItemMsgPickUpSelect" />
@@ -82,7 +82,7 @@
   </Item>
 
   <!-- 3. ERC_elite_medicalunit (战地医疗单元) -->
-  <Item identifier="ERC_elite_medicalunit" category="Equipment" tags="smallitem,mobilecontainer,medicalcontainer" scale="0.2" fireproof="true" waterproof="true">
+  <Item identifier="ERC_elite_medicalunit" category="Equipment" tags="smallitem,mobilecontainer,medicalcontainer" scale="0.3" fireproof="true" waterproof="true">
     <Price baseprice="275" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -90,7 +90,7 @@
       <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="2" />
       <Price storeidentifier="merchantmine" multiplier="1.1" minavailable="1" />
     </Price>
-    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteMedicalUnit.png" depth="0.6" sourcerect="0,0,774,415" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Images/Containers/ERC_EliteMedicalUnit.png" depth="0.6" sourcerect="0,0,200,107" origin="0.5,0.5" />
     <Body width="80" height="50" density="10" />
 
     <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="2.0" aimpos="60,0" holdpos="0,-20" attachable="true" aimable="false">
@@ -109,7 +109,7 @@
   </ItemContainer>
   </Item>
 
-<Item identifier="ERC_toolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.2" fireproof="true" impactsoundtag="impact_metal_heavy" addedrepairspeedmultiplier="1">
+<Item identifier="ERC_toolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.15" fireproof="true" impactsoundtag="impact_metal_heavy" addedrepairspeedmultiplier="1">
   
   <Price baseprice="1400" sold="false" />
   
@@ -131,7 +131,7 @@
   </Fabricate>
 
   <!-- 占位贴图: 使用 ERC_OrganToolbox.png (中型盒子) -->
-  <Sprite texture="%ModDir%/Images/Containers/ERC_Toolbox.png" sourcerect="0,0,430,280" origin="0.5,0.5" depth="0.6" />
+  <Sprite texture="%ModDir%/Images/Containers/ERC_Toolbox.png" sourcerect="0,0,395,280" origin="0.5,0.5" depth="0.6" />
   
   <Body width="90" height="60" density="20" />
   
@@ -197,12 +197,12 @@
     <!-- Slot 1: 梯子 (专用Icon) -->
     <SubContainer capacity="1" maxstacksize="1">
        <SlotIcon texture="%ModDir%/Images/Icons/climbinggear.png" sourcerect="0,0,190,190" origin="0.5,0.5" />
-       <Containable identifiers="portableladder,ladder,climbinggear" />
+       <Containable identifiers="holdableladder,portableladder,ladder,climbinggear" />
     </SubContainer>
 
     <!-- Slot 2: 焊接油箱 (堆叠+3 -> 总共4) -->
     <SubContainer capacity="1" maxstacksize="4">
-       <SlotIcon texture="Content\UI\StatusMonitorUI.png" sourcerect="61,450,130,512" origin="0.5,0.5" />
+       <SlotIcon texture="Content\UI\StatusMonitorUI.png" sourcerect="61,450,69,62" origin="0.5,0.5" />
        <Containable identifiers="weldingfueltank,incendiumfueltank" />
     </SubContainer>
 
@@ -229,6 +229,54 @@
 
   <!-- 猫猫贴图: 400x400 -->
   <Sprite texture="%ModDir%/Images/Containers/ERC_IceCat.png" sourcerect="0,0,400,400" origin="0.5,0.5" depth="0.6" />
+  <Body width="80" height="50" density="20" />
+  
+  <!-- 武器属性: 无伤害 -->
+  <MeleeWeapon slots="Any,LeftHand+RightHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1.8" range="70" combatpriority="6" msg="ItemMsgPickUpSelect">
+    <Attack structuredamage="0" itemdamage="0" targetimpulse="2">
+      <!-- 无 Affliction -->
+    </Attack>
+  </MeleeWeapon>
+  
+  <!-- 容量: 6格 -->
+  <ItemContainer capacity="0" slotsperrow="3" keepopenwhenequipped="true" canbeselected="true" hideitems="true" movableframe="true" msg="ItemMsgInteractSelect">
+    <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
+    
+    <!-- Slot 1: 手术台 (专用Icon) -->
+    <SubContainer capacity="1" maxstacksize="1">
+       <SlotIcon texture="%ModDir%/Images/Icons/surgicaltable.png" sourcerect="0,0,200,150" origin="0.5,0.5" />
+       <Containable identifiers="surgicaltable,operatingtable,mobileop_table,adv_surgical_table" />
+    </SubContainer>
+
+    <!-- Slot 2: 器官箱 (专用Icon) -->
+    <SubContainer capacity="1" maxstacksize="1">
+       <SlotIcon texture="%ModDir%/Images/Icons/ERC_organtoolbox.png" sourcerect="0,0,350,350" origin="0.5,0.5" />
+       <Containable identifiers="organtoolbox,ERC_organtoolbox" />
+    </SubContainer>
+
+    <!-- Slot 3-6: 通用 (4格) -->
+    <SubContainer capacity="4">
+       <Containable items="smallitem" />
+    </SubContainer>
+  </ItemContainer>
+</Item>
+
+<!-- 3. ERC_icecat (冰猫-贴图替换版) -->
+<Item identifier="ERC_icecat_pusheen" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.25" fireproof="true" impactsoundtag="impact_soft">
+  <Price baseprice="1500" sold="false" />
+  
+  <Deconstruct time="10">
+    <Item identifier="wrench" amount="1" />
+    <Item identifier="screwdriver" amount="1" />
+  </Deconstruct>
+  
+  <Fabricate suitablefabricators="fabricator" requiredtime="20">
+    <RequiredItem identifier="ERC_toolbox" amount="1" />
+    <RequiredItem identifier="potassium" amount="1" />
+  </Fabricate>
+
+  <!-- 猫猫贴图: 400x400 -->
+  <Sprite texture="%ModDir%/Images/Containers/ERC_icecat_pusheen.png" sourcerect="0,0,400,400" origin="0.5,0.5" depth="0.6" />
   <Body width="80" height="50" density="20" />
   
   <!-- 武器属性: 无伤害 -->

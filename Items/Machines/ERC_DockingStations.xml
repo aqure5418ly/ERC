@@ -10,7 +10,7 @@
     功能: 储存推进器 + 充电
     Tag: batterycellrecharger (充电用)
   -->
-  <Item identifier="ERC_thruster_dock" category="Machine" tags="container,charger,batterycellrecharger" scale="0.8">
+  <Item identifier="ERC_thruster_dock" category="Machine" tags="container,charger,batterycellrecharger" scale="0.4">
     <Price baseprice="480" sold="true" />
     
     <!-- 占位贴图: 大尺寸 -->

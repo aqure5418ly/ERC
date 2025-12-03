@@ -6,7 +6,7 @@
        ================================================================= -->
 
   <!-- 1. ERC_heavycargo_thruster (ERC重型载货推进器) -->
-  <Item identifier="ERC_heavycargo_thruster" category="Machine" tags="scooter,provocative,mobilecontainer" scale="0.8" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item identifier="ERC_heavycargo_thruster" category="Machine" tags="scooter,provocative,mobilecontainer" scale="0.4" impactsoundtag="impact_metal_light" isshootable="true">
     <Price baseprice="225" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="1" />
@@ -117,7 +117,7 @@
   </Item>
 
   <!-- 2. ERC_railgun_thruster (ERC重型载货推进器（改）- 轨道炮版) -->
-  <Item identifier="ERC_railgun_thruster" category="Machine" tags="scooter,provocative,mobilecontainer,railgunammocontainer" scale="0.8" impactsoundtag="impact_metal_light" isshootable="true">
+  <Item identifier="ERC_railgun_thruster" category="Machine" tags="scooter,provocative,mobilecontainer,railgunammocontainer" scale="0.4" impactsoundtag="impact_metal_light" isshootable="true">
     <Price baseprice="265" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" sold="false" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="1" />
