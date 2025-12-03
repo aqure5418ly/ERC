@@ -108,7 +108,7 @@
     <SlotIcon texture="%ModDir%/Images/Icons/medical.png" sourcerect="0,0,150,120" origin="0.5,0.5" />
   </ItemContainer>
   </Item>
-
+  <!-- 工具箱 -->
 <Item identifier="ERC_toolbox" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.15" fireproof="true" impactsoundtag="impact_metal_heavy" addedrepairspeedmultiplier="1">
   
   <Price baseprice="1400" sold="false" />
