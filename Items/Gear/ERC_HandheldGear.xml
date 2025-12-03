@@ -33,7 +33,7 @@
     </Fabricate>
     <!-- 特性: 适配EA弹药，且使用 SubContainer 实现堆叠数+2 -->
   <!-- 容量修正: 主容器 capacity=0, 子容器=9 -->
-  <ItemContainer capacity="0" maxstacksize="1" ExtraStackSize="8" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
+  <ItemContainer capacity="0" maxstacksize="1" ExtraStackSize="2" slotsperrow="3" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
     <GuiFrame relativesize="0.15,0.25" anchor="Center" style="ItemUI" />
     
     <!-- MaxStackSize="64": 强制设定该容器内物品最大堆叠数为64 -->
@@ -123,8 +123,7 @@
     <RequiredSkill identifier="mechanical" level="80" />
     <RequiredSkill identifier="electrical" level="80" />
     <Item identifier="heavywrench" amount="1" />
-    <Item identifier="wrench" amount="1" />
-    <Item identifier="screwdriver" amount="1" />
+    <Item identifier="repairpack" amount="1" />
     <Item identifier="skillbookhandyseaman" mincondition="1" />
     <Item tag="wire" amount="4" />
     <Item identifier="iron" amount="2" />
@@ -177,7 +176,25 @@
   <!-- 猫猫贴图: 400x400 -->
   <Sprite texture="%ModDir%/Images/Containers/ERC_LavaCat.png" sourcerect="0,0,400,400" origin="0.5,0.5" depth="0.6" />
   <Body width="80" height="50" density="20" />
-  
+    <!-- 猫猫贴图: 400x400
+  <Holdable slots="RightHand+LeftHand" aimable="false" holdpos="50,-50" aimpos="50,-40" handle1="-0,18" handle2="0,0" swingamount="20,100" swingspeed="1" swingwhenusing="true" msg="itemmsgpickupuse" attachable="true" selectkey="Use" pickkey="Use">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+      <StatusEffect type="OnSpawn" target="This" Tags="crate" setvalue="true" />
+  </Holdable>
+   -->
+  <!-- 武器属性: 钝器伤害8 (同工具箱)
+  <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+    <GuiFrame relativesize="0.07,0.1" anchor="BottomCenter" absoluteoffset="-165,0" />
+    <TickBox text="Close">
+      <StatusEffect type="OnUse" target="This" setvalue="true" drawinventory="false" />
+      <StatusEffect type="OnSecondaryUse" target="This" setvalue="true" drawinventory="true" />
+    </TickBox>
+    <TickBox text="Deploy">
+      <StatusEffect type="OnUse" target="This" setvalue="true" attachable="true" />
+      <StatusEffect type="OnSecondaryUse" target="This" setvalue="true" attachable="false" />
+    </TickBox>
+  </CustomInterface>
+   -->
   <!-- 武器属性: 钝器伤害8 (同工具箱) -->
   <MeleeWeapon slots="Any,LeftHand+RightHand" controlpose="true" aimpos="45,10" handle1="0,18" holdangle="90" reload="1.8" range="70" combatpriority="6" msg="ItemMsgPickUpSelect">
     <Attack structuredamage="0" itemdamage="1" targetimpulse="4">
@@ -191,23 +208,33 @@
   </MeleeWeapon>
   
   <!-- 容量: 6格 -->
-  <ItemContainer capacity="0" slotsperrow="3" canbeselected="true" hideitems="true" keepopenwhenequipped="true" movableframe="true" msg="ItemMsgInteractSelect">
+  <ItemContainer capacity="0" slotsperrow="3"  maxstacksize="1" ExtraStackSize="2" canbeselected="true" hideitems="true" keepopenwhenequipped="true" movableframe="true" msg="ItemMsgInteractSelect">
     <GuiFrame relativesize="0.2,0.3" anchor="Center" style="ItemUI" />
     
     <!-- Slot 1: 梯子 (专用Icon) -->
-    <SubContainer capacity="1" maxstacksize="1">
+    <SubContainer capacity="1" maxstacksize="64">
        <SlotIcon texture="%ModDir%/Images/Icons/climbinggear.png" sourcerect="0,0,190,190" origin="0.5,0.5" />
        <Containable identifiers="holdableladder,portableladder,ladder,climbinggear" />
     </SubContainer>
 
     <!-- Slot 2: 焊接油箱 (堆叠+3 -> 总共4) -->
-    <SubContainer capacity="1" maxstacksize="4">
+    <SubContainer capacity="2" >
+       <SlotIcon texture="Content\UI\StatusMonitorUI.png" sourcerect="61,450,69,62" origin="0.5,0.5" />
+       <Containable identifiers="weldingfueltank,incendiumfueltank" />
+    </SubContainer>
+
+    <SubContainer capacity="1" >
+       <SlotIcon texture="%ModDir%/Images/Icons/climbinggear.png" sourcerect="0,0,190,190" origin="0.5,0.5" />
+       <Containable identifiers="safecracker" />
+    </SubContainer>
+
+    <SubContainer capacity="2" >
        <SlotIcon texture="Content\UI\StatusMonitorUI.png" sourcerect="61,450,69,62" origin="0.5,0.5" />
        <Containable identifiers="weldingfueltank,incendiumfueltank" />
     </SubContainer>
 
     <!-- Slot 3-6: 通用 (4格) -->
-    <SubContainer capacity="4">
+    <SubContainer capacity="3" maxstacksize="64">
        <Containable items="smallitem" />
     </SubContainer>
   </ItemContainer>

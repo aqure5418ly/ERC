@@ -6,7 +6,7 @@
        ================================================================= -->
 
   <!-- 1. ERC_duffelbagcontainer (遗物袋柜) -->
-  <Item identifier="ERC_duffelbagcontainer" category="Machine" tags="container,crate" scale="0.5">
+  <Item identifier="ERC_duffelbagcontainer" category="Machine" canflipx="false" tags="container,crate" scale="0.5">
     <PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,piratestoragecab" amount="1" spawnprobability="0.1"/>
     <Price sold="false" />
 
@@ -35,7 +35,7 @@
 
 
   <!-- 2. ERC_expansioncrate (ERC磁力扩容箱) -->
-  <Item identifier="ERC_expansioncrate" category="Equipment" tags="allowcleanup,mediumitem,toolbelt,toolbox,mobilecontainer" scale="0.4">
+  <Item identifier="ERC_expansioncrate" category="Equipment" canflipx="false" tags="allowcleanup,mediumitem,toolbelt,toolbox,mobilecontainer" scale="0.4">
     <Price baseprice="175" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="2" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="6" />
@@ -68,15 +68,11 @@
     <ItemContainer capacity="25" slotsperrow="5" canbeselected="true" hideitems="true" msg="ItemMsgInteractSelect">
       <Containable items="smallitem,mediumitem" excludedidentifiers="mobilecontainer" />
       <GuiFrame relativesize="0.25,0.4" anchor="Center" style="ItemUI" />
-      <SubContainer capacity="5" maxstacksize="1">
-        <SlotIcon texture="%ModDir%/Images/Icons/CommandUIAtlas.png" sourcerect="639,926,128,80" origin="0.5,0.5" />
-        <Containable items="mobilecontainer" tags="allowcleanup,mediumitem,toolbelt,toolbox,mobilecontainer" />
-      </SubContainer>
     </ItemContainer>
   </Item>
 
   <!-- 3. ERC_trashcan (ERC 自动清理桶) -->
-  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" scale="0.1" pickdistance="150">
+  <Item identifier="ERC_trashcan" category="Machine" tags="container,trashcan" canflipx="false" scale="0.1" pickdistance="150">
     <Price baseprice="220" sold="true" />
     
     <!-- 直接使用原版前哨站贴图 (SourceRect来自您提供的代码) -->
@@ -122,7 +118,7 @@
   </Item>
 
 <!-- 4. ERC_armamentcrate (ERC武备框架箱) -->
-<Item identifier="ERC_armamentcrate" category="Equipment" tags="container,crate" scale="0.25">
+<Item identifier="ERC_armamentcrate" category="Equipment" tags="container,crate" canflipx="false" scale="0.25">
     <Price baseprice="275" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -134,8 +130,8 @@
     <InventoryIcon texture="%ModDir%/Images/Containers/ERC_Crate.png" sourcerect="14,0,318,187" origin="0.5,0.5" depth="0.6" />
     <ContainedSprite name="ERC_storagecrate on shelf" allowedcontainertags="cargocontainer" texture="%ModDir%/Images/Containers/ERC_Crate.png" sourcerect="14,0,318,187" depth="0.55" origin="0.5,0.5" />
     
-    <Holdable slots="RightHand+LeftHand" holdpos="0,-40" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
-
+    <Holdable slots="RightHand+LeftHand" selectkey="Select" pickkey="Use"  holdpos="0,-40" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
+    <Body width="125" height="205" density="20" />
     <Deconstruct time="20">
       <Item identifier="titaniumaluminiumalloy" amount="1" />
     </Deconstruct>
@@ -153,7 +149,7 @@
   </Item>
 
   <!-- 5. ERC_storagecrate (ERC储运集装箱) -->
-  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate" scale="0.25" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
+  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate" canflipx="false" scale="0.25" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
     <Price baseprice="175" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="4" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="6" />
@@ -168,7 +164,7 @@
 
     <Body width="145" height="85" density="30" />
     
-    <Holdable slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" PickingTime="3.0" aimpos="60,0" handle1="0,0" aimable="false">
+    <Holdable slots="RightHand+LeftHand" msg="ItemMsgDetachWrench"  selectkey="Select" pickkey="Use" PickingTime="3.0" aimpos="60,0" handle1="0,0" aimable="false">
     </Holdable>
 
     <Deconstruct time="24">
