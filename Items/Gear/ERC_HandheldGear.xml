@@ -160,7 +160,7 @@
 </Item>
 
 <!-- 1. ERC_lavacat (熔岩猫) -->
-<Item identifier="ERC_lavacat" category="Equipment" tags="mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.25" fireproof="true" impactsoundtag="impact_soft">
+<Item identifier="ERC_lavacat" category="Equipment" tags="container,mediumitem,mobilecontainer,tool,wrench,screwdriver,toolbox" scale="0.25" fireproof="true" impactsoundtag="impact_soft">
   <Price baseprice="1500" sold="false" />
   
   <Deconstruct time="10">
@@ -218,13 +218,13 @@
     </SubContainer>
 
     <!-- Slot 2: 焊接油箱 (堆叠+3 -> 总共4) -->
-    <SubContainer capacity="2" >
+    <SubContainer capacity="2" maxstacksize="4" ExtraStackSize="2">
        <SlotIcon texture="Content\UI\StatusMonitorUI.png" sourcerect="61,450,69,62" origin="0.5,0.5" />
        <Containable identifiers="weldingfueltank,incendiumfueltank" />
     </SubContainer>
 
     <SubContainer capacity="1" >
-       <SlotIcon texture="%ModDir%/Images/Icons/climbinggear.png" sourcerect="0,0,190,190" origin="0.5,0.5" />
+       <SlotIcon texture="%ModDir%/Images/Icons/safecraker.png" sourcerect="0,0,224,103" origin="0.5,0.5" />
        <Containable identifiers="safecracker" />
     </SubContainer>
 

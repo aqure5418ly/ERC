@@ -118,7 +118,7 @@
   </Item>
 
 <!-- 4. ERC_armamentcrate (ERC武备框架箱) -->
-<Item identifier="ERC_armamentcrate" category="Equipment" tags="container,crate" canflipx="false" scale="0.25">
+<Item identifier="ERC_armamentcrate" category="Equipment" tags="container,crate,mobilecontainer" canflipx="false" scale="0.25"  linkable="true" pickdistance="150" fireproof="true" waterproof="true">
     <Price baseprice="275" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.1" minavailable="1" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="4" />
@@ -127,11 +127,12 @@
       <Price storeidentifier="merchantmine" multiplier="1.0" minavailable="2" />
     </Price>
     <Sprite texture="%ModDir%/Images/Containers/ERC_Crate.png" depth="0.6" sourcerect="14,413,662,190" origin="0.5,0.5" />
+    <Body width="120" height="80" density="20" />
     <InventoryIcon texture="%ModDir%/Images/Containers/ERC_Crate.png" sourcerect="14,0,318,187" origin="0.5,0.5" depth="0.6" />
     <ContainedSprite name="ERC_storagecrate on shelf" allowedcontainertags="cargocontainer" texture="%ModDir%/Images/Containers/ERC_Crate.png" sourcerect="14,0,318,187" depth="0.55" origin="0.5,0.5" />
     
-    <Holdable slots="RightHand+LeftHand" selectkey="Select" pickkey="Use"  holdpos="0,-40" handle1="-30,14" handle2="30,14" aimable="false" msg="ItemMsgPickUpSelect" />
-    <Body width="125" height="205" density="20" />
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" aimpos="60,0" handle1="0,0" attachable="false" aimable="false">
+    </Holdable>
     <Deconstruct time="20">
       <Item identifier="titaniumaluminiumalloy" amount="1" />
     </Deconstruct>
@@ -149,7 +150,7 @@
   </Item>
 
   <!-- 5. ERC_storagecrate (ERC储运集装箱) -->
-  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate" canflipx="false" scale="0.25" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
+  <Item identifier="ERC_storagecrate" category="Equipment" tags="container,crate,mobilecontainer" canflipx="false" scale="0.25" linkable="true" pickdistance="150" fireproof="true" waterproof="true" explosiondamagemultiplier="0.1">
     <Price baseprice="175" sold="true">
       <Price storeidentifier="merchantoutpost" multiplier="1.0" minavailable="4" />
       <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="6" />
@@ -164,7 +165,7 @@
 
     <Body width="145" height="85" density="30" />
     
-    <Holdable slots="RightHand+LeftHand" msg="ItemMsgDetachWrench"  selectkey="Select" pickkey="Use" PickingTime="3.0" aimpos="60,0" handle1="0,0" aimable="false">
+    <Holdable selectkey="Select" slots="RightHand+LeftHand" msg="ItemMsgDetachWrench" aimpos="60,0" handle1="0,0" attachable="false" aimable="false">
     </Holdable>
 
     <Deconstruct time="24">
